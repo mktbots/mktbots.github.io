@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn nav-active-page">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        
+
+        <h1 class="montserrat-font blue">Clan War Scheduler</h1>
+		
+		<p>
+            Create schedules for people to react to. <br><br>
+
+            Scheduler commands can be customized or disabled entirely by editing your server's <a href="config.html">config options</a>.
+        </p>
+
+
+
+
+
+		<code class="cmd">!create &ltevent title&gt &ltdate and time&gt [optional restriction]</code>
+		<p class="indent">
+            <span><code class="arg">event title</code>: The name of the event<br></span>
+            <span><code class="arg">date and time</code>: When the event takes place. Click <a href="../resources/tips.html">here</a> for an explanation on how dates are parsed.<br></span>
+            <span><code class="arg">optional restriction</code>: Only allow people with a certain role to react. Note: you must first add a restriction with <code class="example">!scheduleroleadd</code> (shown below) in order for it to work.</span><br><br>
+
+			Create a new schedule. <br><br>
+
+            If using <code>optional restriction</code>, add the word "only" after the restriction name. 
+            For example, if you have a restriction with name <code>sapphire</code>, you'd type 
+            <code class="example">sapphire only</code> as in <br>
+            <code class="example">!create example at 12pm pdt <span class="orange">sapphire only</span></code>. You'll know it's enabled if &#128274 is shown.<br><br>
+
+			<!-- Go to https://www.w3schools.com/charsets/ref_emoji.asp for a list of emoji codes -->
+            Optionally, you can use <code class="example">!createc</code> 
+            instead to create a condensed schedule. Each member is shown on one line instead of on 
+            separate lines which makes it more compact. You can also switch between them after the schedule has been 
+            created by reacting with &#128260.<br><br>
+
+            By default, Ice Mario will ping members that have reacted 1 hour before an event as well as when an 
+            event starts. Also, each schedule will be disabled (indicated by the color black) 1 hour 
+            after the scheduled time. You can also have Ice Mario delete the schedule after 1 hour 
+            instead. This can all be adjusted by setting the Clan War Scheduler <a href="config.html">config options</a>.<br><br>
+
+            If someone signs up for two or more events happening at the same time, Ice Mario will send 
+            a warning message about the schedule conflict.<br><br>
+
+            The schedule message color will change based on the number of people that have signed up. 
+            They are as follows:
+			<ul class="indent">
+				<li>Red: The <code>can list</code> and <code>sub list</code> have a combined total less than or equal to (<code>gather-size</code> minus 2). Note: <code>gather-size</code> is a server config option.</li>
+				<li>Green: There are <code>gather-size</code> or more players on the <code>can list</code>.</li>
+				<li>Yellow: When there are almost enough people for an event.</li>
+			</ul>
+		</p> 
+
+        <div class="img-container" style="height: 300px;">
+		    <img class="image img-round-shadow" src="../assets/schedule-cmd.jpg" alt="Example Schedule">
+        </div>
+
+		<p class="indent">
+			People can react to one of the three reactions on the message, and the schedule will update 
+            accordingly. It's recommended to give Ice Mario <code>MANAGE_MESSAGES</code> 
+            permission in your schedule channel because it will automatically remove someone's previous 
+            reaction if they switch to a different one. 
+        </p>
+
+
+
+
+
+        <code class="cmd">!scheduleedit &ltschedule message link&gt &ltnew title and date&gt</code>
+        <p class="indent">
+            <span><code class="arg">schedule message link</code>: The Discord message link<br></span>
+            <span><code class="arg">new title and date</code>: The title and date like when a schedule was created</span><br><br>
+            
+            Edit an existing schedule's title, date, or the restriction.<br><br>
+
+            If you originally created a schedule with <code class="example">!create vs someone today 5pm pdt</code> but need to change the time to 8pm, then an example would be <code class="example">!scheduleedit https://discord.com/channels/12345/67890/19283 vs someone today 8pm pdt</code>.
+        </p>
+
+
+
+
+
+        <code class="cmd">!scheduleadd &ltschedule message link&gt &ltcan/sub&gt &ltmember ping&gt</code>
+        <p class="indent">Add someone to an existing schedule. The second argument should be either "can" or "sub".</p>
+
+        <div class="img-container" style="height: 100px;">
+            <img class="image img-round-shadow" src="../assets/scheduleadd.jpeg" alt="Example schedule add">
+        </div>
+
+
+
+
+
+		<code class="cmd">!scheduleremove &ltschedule message link&gt &ltmember ping&gt</code>
+		<p class="indent">Remove someone from an existing schedule.</p>
+			
+
+
+
+
+		<code class="cmd">!schedule</code>
+		<p class="indent">Get a list of all the schedules in your server for the day (based on Pacific Time).</p>
+
+
+
+
+
+		<code class="cmd">!myschedule</code>
+		<p class="indent">Get a list of all the schedules you have signed up for.</p>
+
+
+
+
+
+		<code class="cmd">!stickyschedule</code>
+		<p class="indent">Initializes a sticky schedule for a server. This will show a list of all the 
+            schedules, and it will be updated once a minute. This is most helpful if its used in its own 
+            channel. Note: you will need <code>MANAGE_MESSAGES</code> permission. This 
+            command can be used multiple times, but only the most recent message will be updated. You may 
+            delete the sticky schedule message to stop further updates.
+        </p>
+
+
+
+
+
+		<code class="cmd">!scheduleroleadd &ltname&gt &ltallowed roles&gt [channel redirect] [nosub]</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!sra</code></span></div>
+		<p class="indent">
+            <span><code class="arg">name</code>: The name (1 word) for the role, to be used when using the <code>!create</code> command.<br></span>
+            <span><code class="arg">allowed roles</code>: @roles or role IDs that can react with the can emoji. If 
+                more than one, separate each of them by a space. Example: <code class="example">!sra test @role @leader</code>.</span><br>
+            <span><code class="arg">channel redirect</code>(optional): #channel mention or channel ID to redirect all schedule messages to. <br></span>
+            <span><code class="arg">nosub</code> (optional): Include the text <code class="example">nosub</code> at the end to disallow sub reactions. </span><br><br>
+
+            Add a schedule restriction so only server members with one of the roles 
+            specified in <span class="code">allowed roles</span> can react. <br><br>
+
+            If you include <code>channel redirect</code>, whenever a schedule is created anywhere in your server, it will be 
+            redirected to the specified channel instead of the current channel. For example, if you have 
+            a channel called #schedule and a channel called #chat, using the !create command inside #chat 
+            will cause the schedule to be sent to #schedule.<br><br>
+            
+            In addition, you can add a default schedule redirect. This will redirect all schedules that do not already have a channel 
+            redirect to a specific channel. To do so, use <code class="example">default</code> for the <code>name</code> parameter and also provide 
+            a channel like so: <code class="example">!sra default #schedules</code>. Note: If the channel 
+            you are typing in already has a channel redirect, then the default redirect will be ignored 
+            and the schedule will be sent to your current channel. <br><br>
+
+            If you include <code class="example">nosub</code> at the end of the command, this will 
+            prevent people without the allowed roles from being able to react with sub. Without 
+            it, people without the necessary roles can still react with sub.
+            <br><br>
+
+			Examples:<br>
+			- Restrict a schedule to only people with the @example role:<br>
+			<code class="example">!sra example @example</code><br>
+			- Redirect all non-restricted schedules to a default channel #schedules:<br>
+			<code class="example">!sra default #schedules</code><br>
+			- Restrict a schedule to @example and @leader roles, and prevent others from reacting with sub:<br>
+			<code class="example">!sra example @example @leader nosub</code><br>
+			- Restrict a schedule to @example, @leader, and @trial role, and add a channel redirect to a channel named trial-schedules:<br>
+			<code class="example">!sra example @example @leader @trial #trial-schedules</code>
+        </p>
+
+		<code class="cmd">!scheduleroleremove &ltname&gt</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!srr</code></span></div>
+		<p class="indent">Remove a schedule restriction.</p>
+			
+		<code class="cmd">!schedulerolelist</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!srl</code></span></div>
+		<p class="indent">List all the schedule restrictions for your server.</p>
+
+	</div>
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div> 
+
+    <script src="../main.js"></script>
+</body>
+</html>

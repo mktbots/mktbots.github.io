@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn nav-active-page">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">MKT Lounge</h1>
+
+		<p>Commands to get MKTC Lounge stats. If needed, you can disable these commands through your server's <a href="config.html">config settings</a>.
+		</p>
+
+		<code class="cmd">!mmr nameList</code> <i>or</i><br>
+		<code class="cmd">!mmr teamNum nameList</code>
+		<p class="indent">            
+            <span><code class="arg">teamNum</code> (optional): The number of teams to split the names into. Teams are based on the order of <code>nameList</code> </span><br>
+            <span><code class="arg">nameList</code> (optional): 1 or more names separated by commas.</span><br><br>
+
+			Get the mmr of the command user or a list of names. An average mmr will also be calculated if there are two or more names. <br><br>
+            
+            Examples:
+            <ul class="indent">
+                <li><code class="example" style="line-height: 1.7;">!mmr</code>: Get your mmr. Make sure your server nickname matches one from the leaderboard. </li>
+                <li><code class="example" style="line-height: 1.7;">!mmr player1</code>: Get the mmr of player1. </li>
+                <li><code class="example" style="line-height: 1.7;">!mmr player1, player2, player3, player4</code>: Get the mmr values of all four players.</li>
+                <li><code class="example" style="line-height: 1.7;">!mmr 4 player1, player2, player3, player4, player5, player6, player7, player8</code>: Separate into 4 teams and get the average mmr for each team</li>
+            </ul>
+        </p>
+        <div class="line"></div>
+
+
+
+
+
+		<code class="cmd">!stats name</code>
+        <p class="indent">            
+            <span><code class="arg">name</code> (optional): Someone's name or their member ping (@someone).</span><br><br>
+
+			Get the last 10 stats. <br><br>
+            
+            Examples:
+            <ul class="indent">
+                <li><code class="example" style="line-height: 1.7;">!stats</code>: Get your last 10 stats. Make sure your server nickname matches one from the leaderboard. </li>
+                <li><code class="example" style="line-height: 1.7;">!stats bob</code>: Get the last 10 stats for the player named <code>bob</code>. </li>
+            </ul>
+        </p>
+        <div class="line"></div>
+
+
+
+
+
+		<code class="cmd">!stats# name</code>
+        <p class="indent">            
+            <span><code class="arg">#</code>: The season number.</span><br>
+            <span><code class="arg">name</code> (optional): Someone's name or their member ping (@someone).</span><br><br>
+
+            Get the history stats for a particular season.<br><br>
+            
+            Examples:
+            <ul class="indent">
+                <li><code class="example" style="line-height: 1.7;">!stats7</code>: Get your season 7 stats.</li>
+                <li><code class="example" style="line-height: 1.7;">!stats10 bob</code>: Get bob's season 10 stats.</li>
+            </ul>
+        </p>
+
+        <div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/stats.png">
+        </div>
+        <div class="line"></div>
+
+
+
+
+
+		<code class="cmd">!statsall name</code>
+		<p class="indent">	        
+            <span><code class="arg">name</code> (optional): Someone's name or their member ping (@someone).</span><br><br>
+
+            Get the history stats from all seasons starting with season 1.
+        </p>
+        <div class="line"></div>
+
+
+
+
+
+		<code class="cmd">!last# name</code>
+		<p class="indent">	
+            <span><code class="arg">#</code> (optional): Specify the last number of events. If left out, this will get the whole season.</span><br>
+            <span><code class="arg">name</code> (optional): Someone's name or their member ping (@someone).</span><br><br>
+
+            Get the stats of the last # events. <br><br>
+
+            Examples:
+            <ul class="indent">
+                <li><code class="example" style="line-height: 1.7;">!last15</code>: Get your stats for the last 15 events.</li>
+                <li><code class="example" style="line-height: 1.7;">!last10 bob</code>: Get bob's stats for the last 10 events.</li>
+            </ul>
+        </p>
+        <div class="line"></div>
+
+
+
+
+
+		<code class="cmd">!top# rank1</code> <i>or</i><br>
+		<code class="cmd">!top# rank2 rank1</code>
+		<p class="indent">	            
+            <span><code class="arg">#</code> (optional): The season number. If left out, this will get the current season.</span><br>
+            <span><code class="arg">rank1</code> (optional): Returns everyone who's rank is above <code>rank1</code>. </span><br>
+            <span><code class="arg">rank2</code> (optional): Returns everyone who's rank is below <code>rank2</code>. </span><br><br>
+
+            Get the players in the specified rank range. <br><br>
+
+            Note: the command will only get at most 10 people, so if you provide both <code>rank2</code> and <code>rank1</code>, then <code>rank1</code> will automatically be converted to <code class="example">rank2 + 10</code> if it is too large. <br><br>
+
+            Examples:
+            <ul class="indent">
+                <li><code class="example" style="line-height: 1.7;">!top</code>: Get the top 10 players for the current season.</li>
+                <li><code class="example" style="line-height: 1.7;">!top8</code>: Get the top 10 players for season 8.</li>
+                <li><code class="example" style="line-height: 1.7;">!top 20</code>: Get the players for the current season with rank between 10 and 20.</li>
+                <li><code class="example" style="line-height: 1.7;">!top 20 30</code>: Get the players for the current season with rank between 20 and 30.</li>
+                <li><code class="example" style="line-height: 1.7;">!top 20 100</code>: Get the players for the current season with rank between 20 and 30.</li>
+                <li><code class="example" style="line-height: 1.7;">!top11 30</code>: Get the players for season 11 with rank between 20 and 30.</li>
+            </ul>
+        </p>
+        <div class="line"></div>
+
+
+
+
+
+        <code class="cmd tall-line">!predict tableData</code>
+        <p class="indent">
+			Predict the mmr change for 8 players. There needs to be 8 players as well as 1, 2, or 4 teams.<br><br>
+
+            Player points are not used in the calculation, they are only used to find each team's rank. If you want to predict the mmr gain before a migi starts, you can enter a small value like <code class="example">1</code> to predict your gain if you get first place.<br><br>
+
+            Note: this command is to predict mmr changes, so the actual change may be off by a few points depending on how many tables still need to be updated.
+        </p>
+
+        <div class="img-container" style="height: 400px;">
+            <img class="image img-round-shadow" src="../assets/predict.jpg">
+        </div>
+        <div class="line"></div>
+
+
+
+
+
+		<code class="cmd tall-line" style="color:#04D309">!scoreboard</code> <i>or</i><br>
+		<code class="cmd" style="color:#04D309">!scoreboard # player1, player2, ..., player8</code>
+        <p class="indent">
+			Generate the scoreboard for a mogi. Note: This command is only available in the MKTC lounge server and in servers where <code>enable-mogi-gatherer</code> is set to <code class="orange">true</code>.
+        </p>
+        
+		<code class="cmd" style="color:#04D309">!mmrlu</code>
+		<p class="indent">	
+            Get the mmr of the current mogi lu. This command is only available in the MKTC Lounge server.<br><br>
+		</p>        
+
+    </div>  
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

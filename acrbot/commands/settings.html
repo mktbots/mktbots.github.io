@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/pfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>ACR Bot</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="acr.html" class="nav-enable-hover nav-category-btn">ACR Commands</a>
+                    <a href="wr.html" class="nav-enable-hover nav-category-btn">WR Commands</a>
+                    <a href="score.html" class="nav-enable-hover nav-category-btn">Score Commands</a>
+                    <a href="settings.html" class="nav-enable-hover nav-category-btn nav-active-page">User Settings</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a id="pfp" href="../"></a>
+
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">User Settings</h1>
+
+        
+
+
+
+        <code class="cmd">/settings list</code>
+        <p class="indent">
+            List your current settings. If you have not used <code class="example">/settings set</code> before, there will be nothing to list.
+        </p>
+
+
+
+
+
+        <code class="cmd">/settings set</code>
+        <p class="indent">
+            Set a setting option. A list of available settings are found below:
+
+            <ul class="indent">
+                <li><code>trackinfo-middle-shelf-driver</code>: Choose either <code>yes</code> or <code>no</code>. If yes, using <code class="example">/trackinfo</code> will always show middle shelf coinbox drivers if they exist for the track.</li>
+                <li><code>show-wr-with-trackinfo</code>: Choose either <code>yes</code> or <code>no</code>. If yes, using <code class="example">/trackinfo</code> will also show the current AC world record card.</li>
+                <li><code>score-nickname</code>: Set your nickname for all <code class="example">/score</code> commands. This will also update all your previous score submissions to reflect the name change. If you no longer want to use a nickname, enter <code class="example">None</code> and your Discord username will be used instead.</li>
+            </ul>
+        </p>
+
+    </div>
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

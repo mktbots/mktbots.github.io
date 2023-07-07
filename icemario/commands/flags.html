@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn nav-active-page">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Custom Flags Manager</h1>
+
+        <p>Custom flags manager. Allows people to add or remove flags to be used when creating a <a href="table.html">table</a>.</p>
+
+		<code class="cmd">!flagadd name [optional image url]</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!addflag</code></span></div>
+		<p class='indent'>
+            <span><code class="arg">name</code>: A one word name for the flag. This can only be at most 7 characters, and it can only include letters a-z, numbers, underscore, and a dash.<br></span>
+            <span><code class="arg">image url</code>: Either provide the url to a flag, or provide the image as an attachment.<br></span><br>
+
+            Add or update a flag.
+		</p>
+
+		<code class="cmd">!flagremove name</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!removeflag</code></span></div>
+		<p class="indent">
+            <span><code class="arg">name</code>: The name of the flag to remove.<br></span><br>
+
+			Remove a custom flag.
+		</p>
+
+		<code class="cmd">!flaglist</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!listflag</code></span></div>
+		<p class="indent">
+			Get an image listing all the custom flags that have been added.
+		</p>
+
+		<code class="cmd">!flagget name</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!getflag</code></span></div>
+		<p class="indent">
+            <span><code class="arg">name</code>: The name of the flag to get.<br></span><br>
+
+			Get an image of the specified flag. This can either be a custom flag or an Hlorenzi flag.
+		</p>
+
+    </div>  
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

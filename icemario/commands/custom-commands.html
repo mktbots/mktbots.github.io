@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn nav-active-page">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Custom Commands Manager</h1>
+        <p>
+            Create custom commands to have Ice Mario respond with something! Some example use cases are to get your team's tag or to get someone's twitch link when they're streaming.<br><br>
+
+            Custom commands are enabled by default, but you can disable them through your server's <a href="config.html">config settings</a>. You can also restrict it to only allow moderators to update them.<br><br>
+
+            There is a limit of 25 commands per server. If you really need to increase the limit, please <a href="../resources/contact.html">contact me</a> for assistance.
+        </p>
+
+
+
+
+
+        <code class="cmd">!customcommandadd command, value</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!cca</code></span></div>
+		<p class="indent">
+            <span><code class="arg">command</code>: The name of the command to create<br></span>
+            <span><code class="arg">value</code>: What the command should return<br><br></span>
+			
+            Add or update a custom command. <br><br>
+            
+            There should be a comma separating <code>command</code> and <code>value</code>, and both of them can be more than one word. If you would like Ice Mario to send back an image instead of text, provide the image link to <code>value</code>. All custom commands will use "!" as the prefix. Here is an example of adding the command <code>!invite</code>:<br>
+		</p>
+        <div class="img-container" style="height: 200px;">
+            <img class="image img-round-shadow" src="https://media.discordapp.net/attachments/771426480126558229/903815679977881630/image0.png">
+        </div>
+
+
+
+
+
+        <code class="cmd">!customcommandremove command</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!ccr</code></span></div>
+		<p class="indent">
+            <span><code class="arg">command</code>: The name of the command to create<br><br></span>
+
+			Remove a custom command. <br><br>
+
+            For example, to remove the command <code>!invite</code> from above, use <code class="example">!ccr invite</code>
+        </p>
+
+
+
+
+
+		<code class="cmd">!customcommandlist</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!ccl</code></span></div>
+        <p class="indent">
+			List all the custom commands set in a server.
+		</p>
+
+    </div>  
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

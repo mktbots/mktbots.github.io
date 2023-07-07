@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    color: white;
+    background-color: #2e3136;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ------------------------------------------------------- */
+/* Top header */
+
+#header {
+    display: flex;
+    height: 50px;
+    background: linear-gradient(#00B0F0, #4472C4);
+    justify-content: flex-start; /* justify-content: right; */
+    position: sticky;
+    align-items: center;
+}
+
+#pfp {
+    background-image: url("../assets/icemariopfp.png");
+    background-size: cover;
+    position: absolute;
+    right: 0px;
+    margin-right: 20px;
+    border-radius: 50%;
+    color: red;
+    width: 35px;
+    height: 35px;
+    box-shadow: 1px 1px 3px -1px #444;
+}
+#pfp:hover {
+    background-image: url("../assets/stare.png");
+}
+/* ------------------------------------------------------- */
+
+/* #main-content {
+    background-color: #35393e;
+} */
+
+
+/* ------------------------------------------------------- */
+/* wrapper to center and restrict max height of images */
+
+.img-container {
+    /* You should use style="height: 300px;" in html for example to set max height. DO NOT set width */
+    text-align: center;
+    margin-bottom: 30px;
+
+    /*
+
+    Regular image:
+
+        <div class="img-container" style="height: 400px;">
+            <img src="assets/cups.png">
+        </div>
+
+    Screenshot image (includes box shadow):
+        
+        <div class="img-container" style="height: 200px;">
+            <img class="image img-round-shadow" src="sample.png">
+        </div>
+    */
+
+}
+.img-container img{
+    max-height: 100%;
+    max-width: 100%;
+}
+@media only screen and (max-width: 500px) {
+    .img-container {
+        /* Fixes "margin" for small screens */
+        height: auto !important; 
+    }
+}
+
+
+.line{ 
+    border-bottom: 1px solid #B7B5B5;
+    margin-bottom: 20px;
+}
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    text-align: center;
+    padding: 7px 10px;
+    color: #444;
+    background-color: black;
+    margin-top: 50px;
+}
+.footer p {
+    margin: 5px;
+}
+
+/* ------------------------------------------------------- */
+/* Utility classes */
+
+.blue {
+    color: #00B0F0;
+}
+.orange {
+    color: rgb(255, 149, 0);
+}
+.yellow {
+    color: #e3b236;
+    /* color: #ffb703; */
+}
+.outline {
+    outline: 3px solid red;    
+}
+
+.roboto-font {
+    font-family: 'Roboto', sans-serif;
+}
+.montserrat-font {
+    font-family: 'Montserrat', sans-serif;
+}

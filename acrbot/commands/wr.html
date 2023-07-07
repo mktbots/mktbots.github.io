@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/pfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>ACR Bot</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="acr.html" class="nav-enable-hover nav-category-btn">ACR Commands</a>
+                    <a href="wr.html" class="nav-enable-hover nav-category-btn nav-active-page">WR Commands</a>
+                    <a href="score.html" class="nav-enable-hover nav-category-btn">Score Commands</a>
+                    <a href="settings.html" class="nav-enable-hover nav-category-btn">User Settings</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a id="pfp" href="../"></a>
+
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">World Record Commands</h1>
+        <p>Find out what the current action count world record is for any track.</p>
+        
+
+
+
+        <code class="cmd">/wr</code>
+        <p class="indent">
+            <span><code class="arg">track-name</code>: The name of the track. Click <a href="../resources/tips.html">here</a> for an explanation on how track names are resolved.</span><br><br>
+
+            Get the action count world record for a track. 
+        </p>
+        <div class="img-container" style="height: min(300px, 60vw);">
+            <img class="image img-round-shadow" src="../assets/wr.jpg">
+        </div>
+
+
+
+
+
+        <code class="cmd">/wrsubmit</code>
+        <p class="indent">
+            <span><code class="arg">track-name</code>: The name of the track.<br>
+            <span><code class="arg">ac</code>: The action count.<br>
+            <span><code class="arg">player-name</code>: The name of the player.<br>
+            <span><code class="arg">tour-name</code> (optional): The name of the tour. The bot will automatically use the name of the current tour if this argument is left out.<br>
+            <span><code class="arg">video-link</code> (optional): An optional video link.<br><br>
+
+            Submit a new action count world record for a track. Before submitting, make sure to read the rules found by using the <code class="example">/wrrules</code> command.<br><br>
+
+            <strong>Note: <code class="example">/wrsubmit</code> is only available on the ACR Bot server.</strong>
+        </p>
+
+
+
+
+
+        <code class="cmd">/wrrules</code>
+        <p class="indent">
+            Get the rules required to submit with <code class="example">/wrsubmit</code>.<br><br>
+
+            As of the Night Tour, these are the rules:<br>
+            <ol class="indent">
+                <li>The race shall be in 150cc.</li>
+                <li>The race shall be finished in 1st.</li>
+                <li>Any boosted skills (i.e. those not available on the course as shown by /trackinfo) are <strong>not</strong> eligible.</li>
+                <li>Records made with pumpkins are <strong>not</strong> eligible. However, Starting with New Year's 2023 Tour, events/festival obstacles (Christmas Trees / Katdomatsus) <strong>are</strong> eligible if there is video proof.</li>
+                <li>Starting with the Night Tour, tied records are allowed.</li>
+                <li>Battle tracks are <strong>not</strong> eligible. </li>
+            </ol>
+        </p>
+
+
+
+
+
+        <code class="cmd">/wrtour</code>
+        <p class="indent">
+            <span><code class="arg">tour-name</code> The name of the tour. Click <a href="../resources/tips.html#tourname-parser">here</a> for an explanation on how tour names are resolved.<br><br></span>
+
+            Get the list of world records that were set during the specified tour. Records set before or after <code>tour-name</code> are not included.
+        </p>
+
+
+
+
+
+        <code class="cmd">/wrcurrenttour</code>
+        <p class="indent">
+            Get the action count world records for each track of the current tour. This is different than <code class="example">/wrtour</code> in that <code class="example">/wrcurrenttour</code> shows the current WR for every track of the current tour regardless of when the WR was set.
+        </p>
+
+
+
+
+
+        <code class="cmd">/wrlist</code>
+        <p class="indent">
+            <span><code class="arg">player-name</code>: The name of the player. Use * at the beginning or end to do a wildcard search. <br><br>
+
+            List the action count world records for a player.
+        </p>
+ 
+    </div>
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

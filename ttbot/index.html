@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/pfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>MKT Time Trial Bot</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/commands.css"
+
+</head>
+<body>
+    <div id="header">
+        <a href="../"> <img id="home-icon" src="assets/mkt-bots-logo.png"></a>
+        <div id="pfp"></div>
+
+    </div>
+
+    <div class="home-banner">
+        <div class="home-banner-text">
+            <h1>MKT Time Trial Bot</h1>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="hide">
+            <h1 class="header">About</h1>
+            <p>
+                MKT Time Trial Bot manages all the time trial related activities on the MKTC Discord server. Use it to submit your best times, view the leaderboard for any track, and see a player's TT history!
+            </p>
+            <div class="invite">
+                <p>Click below to join the MKTC Discord server</p>
+                <div>
+                    <a href="https://discord.gg/H3Nsdcn" class="btn server-btn"><img src="assets/mktc.png"> Join the MKTC Server</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h1 class="header hide">How To Submit</h1>
+        <p class="hide">
+            There are a few ways you can submit your times, but regardless of the method, all submissions should be done in the <code class="example">#tt-submission</code> channel. Then, wait for an Updater to approve it.<br><br>
+        </p>
+
+        <h2 class="blue hide">Method 1: Send a screenshot</h2>
+        
+        <p class="hide">
+            The easiest way to submit is to send a screenshot.<br><br>
+
+            Once the new tracks have been added to the bot, which may take around a day after a new tour starts, it will use OCR to read the time and track name from your screensho automatically, and a submission message containing the details will be shown. Otherwise, an Updater will add your submission for you. <br><br>
+            
+            If you have the lap times, you should include them when you send the the screenshot. For example, use <code class="example">39.75/39.72</code> or <code class="example">.75/.72</code>. <br><br>
+        </p>
+
+        <div class="img-container hide" style="height: 400px;">
+            <img class="image img-round-shadow" src="assets/submission.png">
+        </div>
+
+        <p class="hide">
+            If there were any errors, you can press the <code class="example">Edit</code> button where you can change the track, time, or add a video link. If you wish to cancel your submission, you can press the <code class="example">Cancel</code> button.<br><br>
+        </p>
+
+
+        <h2 class="blue hide">Method 2: Use the submit command</h2>
+
+        <p class="hide">
+            You may also submit by using <code class="example">/submit</code> (preferred) or <code class="example">!submit</code>.<br><br>
+
+            For the slash command <code class="example">/submit</code>, these are the required and optional arguments:<br><br>
+            <span><code class="arg">track-name</code>: While you type, a list of suggestive names will appear. You may select one of those names, enter the full name, or enter the track abbreviation.</span><br>
+            <span><code class="arg">time</code>: Either the total time <code class="example">1:19.14</code> or the lap times <code class="example">39.46/39.68</code>. Note: lap times like <code class="example">.75/.72</code> will <strong>not</strong> work here.</span><br>
+            <span><code class="arg">screenshot</code>: The screenshot.</span><br>
+            <span><code class="arg">video-link</code> (optional): A link to your video.</span><br><br>
+
+            For the message command <code class="example">!submit</code>, use the following command order, and don't forget to include the screenshot image:<br>
+            <code class="cmd">!submit track-name time optional-video-link</code><br><br>
+        </p>
+
+        <h1 class="header hide">Checking The Leaderboard</h1>
+        <p class="hide">
+            Use <code class="arg">/leaderboard</code>. <br><br>
+
+            You will need to provide the <code class="arg">track-name</code> argument. Similar to <code class="example">/submit</code>, a list of suggestive tracks will appear while you type. <br><br>
+
+            Optionally, you can use <code class="arg">filter</code> to show either the <code>global</code> leaderboard, which includes all the submissions from the previous tours, or only the <code>current tour</code> leaderboard. If you are viewing the current tour leaderboard, you can optionally set <code class="arg">send-as-image</code> to be <code class="example">yes</code> to get the leaderboard as an image table.
+        </p>
+
+
+
+        <h1 class="header hide">Checking Someone's History</h1>
+        <p class="hide">
+            Use <code class="arg">/player-history</code>.<br><br>
+
+            You will need to provide the <code class="arg">player-name</code> argument. While you type, a list of suggestive names will appear. <br><br>
+
+            By default, the results will be sorted in alphabetical order by track name. If you want to sort by rank, which shows the tracks you placed the highest in first, select the <code>rank</code> option in the <code class="arg">sort-by</code> argument.<br><br>
+
+            Note: multiple names for the same player may show up while typing in <code class="arg">player-name</code>, and this is the result of name changes over time. The bot will do its best to map names to the correct player. However, if you notice a name is not mapping correctly, please contact an Updater to resolve the issue.
+        </p>
+
+
+    </div>
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

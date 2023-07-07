@@ -1,0 +1,177 @@
+:root {
+    --nav-width: 275px;
+    --nav-bg-color:#2d3136;
+    --nav-bg-hover-color: #222222;
+    --nav-text-color-base: #b7b7b7;
+    --nav-text-color-hover: #f1f1f1;
+    --transition-speed: 0.3s;
+}
+
+@media only screen and (min-width: 501px) {
+    #nav {
+        transition: var(--transition-speed);
+        overflow: hidden;
+    }
+    #home-icon {   
+        float: left;
+        margin-left: 15px;
+        padding: 10px;
+        height: 30px;
+    }
+    #nav a {
+        float: left;
+        font-size: 16px;
+        text-align: left;
+        text-decoration: none;
+        color: var(--nav-text-color-base);
+    }
+    #nav .nav-category {
+        float: left;
+        overflow: hidden;
+    }
+    .nav-category p {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+    #nav-home-btn {
+        color: white !important;
+        padding: 16px 20px;
+    }
+
+    .nav-category-btn-wrapper {
+        display: none;
+        position: absolute;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        padding: 10px 0;
+    }
+    .nav-category-btn {
+        float: none;
+        padding: 8px 20px;
+        width: auto;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        width: 200px;
+        color: var(--nav-text-color-base);
+    }
+
+    .nav-category-btn:hover {
+        color: var(--nav-text-color-hover) !important;
+        background-color: var(--nav-bg-hover-color) !important;
+        width: 200px;
+    }
+
+    .nav-category:hover .nav-category-btn-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: var(--nav-bg-color);
+    }
+    .nav-category p:hover {
+        cursor: default;
+    }
+    #nav-openbtn {
+        display: none;
+    }
+    #nav-closebtn {
+        display: none;
+    }
+}
+
+
+
+@media only screen and (max-width: 500px) {
+    #nav {
+        background-color: var(--nav-bg-color);
+        position: fixed;
+        left: calc(-1*var(--nav-width) - 5px);
+        top: 0;
+        bottom: 0;
+        padding-top: 50px;
+        box-shadow: 5px 0px 5px -2px black;
+        border-right: none;
+        min-width: var(--nav-width);
+        width: var(--nav-width);
+        transition: var(--transition-speed);
+        overflow-y: auto;
+    }
+    #home-icon {   
+        position: absolute;
+        top: 0px;
+        left: 50px;
+        margin-left: 15px;
+        padding: 10px;
+        height: 30px;
+    }
+    #nav a {
+        padding: 8px 0px 8px 15px;
+        text-decoration: none;
+        color: #b7b7b7;
+        display: block;
+        transition: var(--transition-speed);
+        margin-left: 15px;
+        border-radius: 3px;
+    }
+    #nav a:hover, #nav-closebtn:hover {
+        color: #f1f1f1;
+    }
+    .nav-enable-hover:hover {
+        background-color: var(--nav-bg-hover-color);
+        border-left: 3px solid rgb(52, 135, 202);
+        transition: 0.1s;
+    }
+    #nav-openbtn {
+        display: block;
+        background: rgba(0, 0, 0, 0);
+        padding: 5px;
+        color: white;
+        font-size: 30px;
+        border: none;
+        position: absolute;
+        top: 0px;
+        left: 20px;
+        cursor: pointer;
+    }
+    #nav-closebtn {
+        display: block;
+        position: absolute;
+        text-align: center;
+        top: 5px;
+        right: 5px;
+        font-size: 36px;
+        margin: 0;
+        cursor: pointer;
+        color: #b7b7b7;
+        padding: 0px 10px;
+    }
+
+    .nav-category {
+        padding-left: 0px;
+    }
+    .nav-category p {
+        font-size: 13px;
+        font-weight: bold;
+        padding-left: 10px;
+        margin-bottom: 5px;
+        color: #dddddd;
+    }
+    .nav-category a {
+        padding-left: 10px !important;
+    }
+
+    .nav-active-page {
+        border-left: 3px solid rgb(0, 140, 255);
+        color: rgb(66, 170, 255) !important;
+    }
+    
+    .nav-top-border {
+        border-top: 1px solid #aaaaaa;
+        margin: 10px 20px;
+    }
+}

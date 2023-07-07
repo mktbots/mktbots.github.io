@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/pfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>ACR Bot</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/acr.html" class="nav-enable-hover nav-category-btn">ACR Commands</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Commands</a>
+                    <a href="../commands/wr.html" class="nav-enable-hover nav-category-btn">WR Commands</a>
+                    <a href="../settings.html" class="nav-enable-hover nav-category-btn">User Settings</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="tips.html" class="nav-enable-hover nav-category-btn nav-active-page">Helpful Tips</a>
+                    <a href="contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a id="pfp" href="../"></a>
+
+    </div>
+
+    <div id="main-content">
+
+        <h1 class="montserrat-font blue">Helpful Tips</h1>
+
+        <h2 id="trackname-parser" class="yellow">Track Name Parser</h2>
+        <p>
+            Commands requiring the argument <code>track-name</code> now have autocomplete enabled. Essentially, while you are typing, a list of track names will appear. Note however, autocomplete only shows suggestions and is not required.<br><br>
+            
+            Overall, these are the general guidelines:
+            <ul>
+                <li>The track name is case insensitive.</li>
+                <li>Entering the full track name (including the console like <code>snes</code> or <code>gba</code>) is the most accurate method. Ex: <code class="example">3ds mario circuit</code>. </li>
+                <li>In general, you can leave out the console name. However, some tracks that share the same abbreviation, like <code class="example">bc3</code>, requires it.</li>
+                <li>You may use the track name's acronym or abbreviation. Ex: <code class="example">nbc</code> instead of <code class="example">neo bowser city</code>. </li>
+                <li>For normal track variants, do not include <code>n</code> at the end of the track's name. Ex: use <code class="example">bp</code> instead of <code class="example">bpn</code> to get the normal variant of Baby Park.</li>
+                <li>You can use <code class="example">rt</code> instead of <code class="example">r/t</code>. </li>
+            </ul>
+
+            Here are some examples that will all resolve to <code>SNES Choco Island 1R</code>:
+            <ul>
+                <li>snes choco island 1r</li>
+                <li>choco island 1r</li>
+                <li>snes ci 1r</li>
+                <li>snes ci1r</li>
+                <li>snesci1r</li>
+                <li>ci1r</li>
+            </ul>
+
+
+            In some cases, the track acronym is shared between two or more tracks. For example, <code>cm</code> can apply to <code>Choco Mountain</code> and <code>Coconut Mall</code>. In such cases, you should either include the console name or use one of the abbreviations below.<br><br>
+
+            <table>
+                <tr> <th>Track Name</th> <th>Abbreviation</th> </tr>
+                <tr> <td>Rainbow Road</td> <td>rr</td> </tr>
+                <tr> <td>Royal Raceway</td> <td>rry</td> </tr>
+                <tr> <td>Sydney Sprint</td> <td>ss</td> </tr>
+                <tr> <td>Singapore Speedway</td> <td>ssy</td> </tr>
+                <tr> <td>Choco Mountain</td> <td>cm</td> </tr>
+                <tr> <td>Coconut Mall</td> <td>cma</td> </tr>
+                <tr> <td>Bowser's Castle 1</td> <td>bc1</td> </tr>
+                <tr> <td>Battle Course 1</td> <td>bco1</td> </tr>
+                <tr> <td>Amsterdam Drift</td> <td>ad</td> </tr>
+                <tr> <td>Athens Dash</td> <td>atd</td> </tr>
+                <tr> <td>GBA Bowser's Castle 3</td> <td>gbabc3</td> </tr>
+                <tr> <td>SNES Bowser Castle 3</td> <td>snesbc3</td> </tr>
+                <tr> <td>Daisy Cruiser</td> <td>dcr</td> </tr>
+                <tr> <td>Daisy Circuit</td> <td>dci</td> </tr>
+                <tr> <td>Wario Shipyard</td> <td>ws</td> </tr>
+                <tr> <td>Waluigi Stadium</td> <td>wsta</td> </tr>
+            </table> <br>
+
+            For commands like <code class="example">/trackinfo</code> or <code class="example">/wr</code>, there are additional ways to specify <code>track-name</code>:
+            <ul>
+                <li>Add the word "all" to get all track variants at once. For example, <code class="example">nym all</code> or <code class="example">nymall</code> will get the N, R, T, and R/T variants all at once.</li>
+                <li>Use <code class="example">week 1</code> or <code class="example">w1</code> to get the three tracks for the first week of ranked cup.</li>
+                <li>Similarly, use <code class="example">week 2</code> or <code class="example">w2</code> for the second week.</li>
+            </ul>
+        </p>
+        <br>
+
+
+
+
+
+        <h2 id="tourname-parser" class="yellow">Tour Name Parser</h2>
+        <p>
+            Similar to the trackname parser, commands requiring the argument <code>tour-name</code> now have autocomplete enabled, and this will be the most accurate way to specify the tour name.<br><br>
+
+            Overall, these are the general guidelines:
+            <ul>
+                <li>The tour name is case insensitive.</li>
+                <li>Adding the word <code class="example">tour</code> to the end is optional as the bot will automatically add it if it's missing.</li>
+                <li>For repeated tour names, adding parentheses around the year is optional.</li>
+            </ul>
+
+            Here are some examples that will resolve to <code>Night Tour</code>:
+            <ul>
+                <li>night tour</li>
+                <li>night</li>
+            </ul>
+            Here are some examples that will resolve to <code>Mario vs. Luigi Tour (2023)</code>:
+            <ul>
+                <li>mario vs. luigi tour (2023)</li>
+                <li>mario vs. luigi (2023)</li>
+                <li>mario vs luigi 2023</li>
+            </ul>
+
+            In the event you enter a tour name that cannot be resolved, like if you used <code class="example">mario vs luigi</code> without specifying the year, the bot will send you a list of similar tour names.
+        </p>
+
+
+    </div>
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

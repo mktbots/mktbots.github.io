@@ -1,0 +1,118 @@
+
+
+code {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    color: #f7ad19;
+    /* color: #fbd1a2; */
+}
+
+a {
+    color: #007bff;
+}
+
+code.cmd { /* styling for main command syntax */
+    background-color: #212326;
+    color: #00b0f0;
+    font-size: 15px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin: 5px 0;
+}
+code.example { /* styling for example command usage in command description */
+    background-color: #191b1d;
+    font-size: 13px;
+    padding: 1px 5px;
+    color: white;
+    border-radius: 3px;
+}
+code.example-tall { /* styling for example command usage with taller line height */
+    background-color: #191b1d;
+    font-size: 13px;
+    padding: 1px 5px;
+    color: white;
+    border-radius: 3px;
+    line-height: 1.7;
+}
+code.tall-line { /* add to top command class if there are 2+ arg versions */
+    line-height: 2.2;
+}
+
+.alias-wrapper {
+    margin-top: 5px;
+}
+.alias { /* styling for command alias */
+    background-color: #212326;
+    color: rgb(82, 192, 35);
+    /* color: #90e0ef; */
+    font-size: 15px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin: 2px 0;
+}
+.alias code {
+    color: rgb(82, 192, 35);
+    /* <div class="alias-wrapper"><span class="alias">Alias: <code>!sra</code></span></div> */
+}
+
+.arg {
+    background-color: #212326;
+    color: #008cf0;
+    /* color: #00b4d8; */
+    font-size: 15px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin: 0;
+
+    /* use inside <p> tag. span needed to make line height slightly taller
+    <span><code class="arg">name</code>: Description</span><br>
+    */
+}
+
+
+
+
+#main-content {
+    padding: 50px;
+    background-color: #2e3136;
+    color: rgb(240, 239, 239);
+    max-width: 800px;
+    margin: 0 auto;
+}
+#main-content p {
+    line-height: 1.3;
+    margin: 3px 0 20px 0;
+}
+p span {
+    line-height: 1.5;
+}
+p .h3 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 2.5;
+}
+@media only screen and (max-width: 500px) {
+    #main-content {
+        padding: 20px;
+    }
+}
+
+.image {
+    display: block;
+    text-align: center;
+    margin: 5px auto;
+}
+.img-round-shadow {
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+}
+
+
+/* //////////////////////////////////////////////// */
+
+.indent {
+    margin-left: 40px !important;
+}
+.indent2 {
+    margin-left: 80px !important;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn nav-active-page">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Miscellaneous Commands</h1>
+
+        <h2 class="yellow">!choose and !teams</h2>
+		<p>These commands can be individually enabled or disabled (disabled by default). They can be enabled by changing the server <a href="config.html">config settings</a>.</p>
+
+		<code class="cmd tall-line">!choose item1, item2, ..., itemN</code> <i>or</i><br>
+		<code class="cmd">!choose num item1, item2, ..., itemN</code>
+		<p class="indent">
+			Randomly choose one or more items in the list of items provided. If <code>num</code> is omitted, Ice Mario will choose 1 item out of the list. Otherwise, Ice Mario wil choose <code>num</code> number of items. The items list can be separated using either a comma or a space. <br><br>
+            
+            Examples:
+			<ul class="indent">
+                <li><code class="example">!choose banana, orange, mango, strawberry, pineapple</code>: 1 item will be randomly chosen.</li>
+                <li><code class="example">!choose 1 banana, orange, mango, strawberry, pineapple</code>: 1 item will be randomly chosen.</li>
+                <li><code class="example">!choose 2 banana orange mango strawberry pineapple</code>: 2 items will be randomly chosen.</li>
+            </ul>
+        </p>
+
+		<code class="cmd">!teams # player1, player2, ..., playerN</code>
+        <p class="indent">
+			Randomize n players into the number of teams specified in <code>#</code>. <br><br>
+
+            Examples:
+            <ul class="indent">
+                <li><code class="example">!teams 2 player1, player2, ..., player8</code>: Randomly separate 8 players into two teams for a 4v4.</li>
+                <li><code class="example">!teams 4 player1, player2, ..., player8</code>: Randomly separate 8 players into four teams for a 2v2.</li>
+            </ul>
+        </p>
+            
+
+
+
+        <hr class="line">
+        <h2 class="yellow">Make Ice Mario Talk</h2>
+        <code class="cmd">im!say text</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!im</code></span></div>
+        <p class="indent">
+            Makes Ice Mario repeat whatever is provided in <code>text</code>. <br><br>Here are some example use cases:<br>
+            <ul class="indent">
+                <li><code class="example">!im Hello World</code>: A message saying "Hello World" will be sent back.</li>
+                <li><code class="example">!im :pepeClown:</code>: Ice Mario will send back the pepeClown emoji. </li>
+            </ul>
+        </p> 
+        <br>
+        
+
+
+
+        <hr class="line">
+        <h2 class="yellow">MKT Friend Codes</h2>
+        <p>FCs are taken from <a href="https://www.mariokartcentral.com/mkc/" target="_blank">Mario Kart Central</a>, and the list updates once a day. Currently, only Mario Kart Tour FCs are supported.</p>
+
+		<code class="cmd">!mktfc playerName1, playerName2, ...</code>
+        <p class="indent">
+			Get the friend codes for one or more MKT players, separated by commas. If Ice Mario is unable to match a name, a list of similar names will be shown, but only if there's not too many.
+        </p>
+			
+		<code class="cmd">!mktfct teamName</code>
+        <p class="indent">
+			Get the friend codes for an MKT team. <code class="arg">teamName</code> can be a team's full name, their tag, or their acronym. 
+		</p>
+        <br>
+
+
+
+        <hr class="line">
+        <h2 class="yellow">MKT Ranked Score Calculator</h2>
+        <p>Get an estimate of the possible score on a track given your loadout. Note: these commands were created a few years ago, and there are now much better resources available.</p>
+
+		<code class="cmd">im!score</code> <br>
+		<p class='indent'>
+			Get an estimate of the score possible for your loadout. You should type <code class="example">im!score</code>, and Ice Mario will then send a form for you to fill out. <b>Copy the whole message</b>, fill it out, then send it back. For kart rarity, n=normal, s=super, and h=high end.
+		</p>
+
+        <div class="img-container" style="height: 350px;">
+            <img class="image img-round-shadow" src="https://media.discordapp.net/attachments/771426480126558229/903795947002290176/image0.png">
+        </div>
+
+		<code class="cmd">im!ac</code>
+		<p class="indent">
+			Get an estimate of the action count required to achieve a desired score based on your loadout. This is almost exactly like <code class="example">im!score</code>, but you specify the points instead of Action Count.
+		</p>
+
+    </div>  
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

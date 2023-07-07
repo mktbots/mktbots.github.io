@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/pfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>ACR Bot</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="acr.html" class="nav-enable-hover nav-category-btn">ACR Commands</a>
+                    <a href="wr.html" class="nav-enable-hover nav-category-btn">WR Commands</a>
+                    <a href="score.html" class="nav-enable-hover nav-category-btn nav-active-page">Score Commands</a>
+                    <a href="settings.html" class="nav-enable-hover nav-category-btn">User Settings</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a id="pfp" href="../"></a>
+
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Score Commands</h1>
+        <p>Manages a leaderboard for every track in the game.</p>
+
+
+
+        <code class="cmd">/score submit</code>
+        <p class="indent">
+            <span><code class="arg">track-name</code>: The name of the track. Click <a href="../resources/tips.html">here</a> for an explanation on how track names are resolved.</span><br>
+            <span><code class="arg">score-ss</code>: A screenshot containing your score.</span><br>
+            <span><code class="arg">score</code>: Your score.</span><br>
+            <span><code class="arg">ac-ss</code> (optional): A screenshot containing your action count.</span><br>
+            <span><code class="arg">ac</code> (optional): Your action count.</span><br><br>
+
+            Submit your score for a track. Unlike <code class="example">/wrsubmit</code>, you are not able to submit for someone else. By default, your Discord username will be used. If you would like to use a nickname, you can change it with the <a href="settings.html"><code style="color: #007bff;">/settings set score-nickname</code></a> command. <br><br>
+
+            Since the <code class="example">/score</code> command is primarily focused on scores, including the action count is encouraged but not required. To include the AC, provide <i>both</i> <code>ac-ss</code> and <code>ac</code> arguments.<br><br>
+
+            If you get a new high score, you can just use <code class="example">/score submit</code> again instead of first unsubmitting then resubmitting.<br><br>
+
+            <strong>Important: Troll submissions are not allowed.</strong> This includes sending random images instead of a proper screenshot, sending someone else's screenshot as your own, or sending an incorrect score. We know mistakes happen, so it's not considered trolling if you accidentally enter the wrong score. However, it <i>is</i> if you enter something like <code class="example">67234</code> when the screenshot says 52443. If you troll, you will be banned from being allowed to submit in the future.
+        </p>
+            <div class="img-container" style="height: min(400px, 60vw);">
+                <img class="image img-round-shadow" src="../assets/score-submit.jpg">
+            </div>
+
+
+
+
+        <code class="cmd">/score unsubmit</code>
+        <p class="indent">
+            <span><code class="arg">track-name</code>: The name of the track.<br><br>
+
+                Unsubmit your score for a track.
+        </p>
+
+
+
+
+        <code class="cmd">/score track-leaderboard</code>
+        <p class="indent">
+            <span><code class="arg">track-name</code>: The name of the track.<br>
+            <span><code class="arg">filter</code> (optional): Show either the global or server leaderboard.<br>
+            <span><code class="arg">sort-by</code> (optional): By default, this sorts by decreasing score, but you can also sort it by the action count.<br><br>
+
+            Get the leaderboard for a track. You can filter the results to show either the global leaderboard or for your current server's leaderboard.
+        </p>
+
+
+
+
+        <code class="cmd">/score global-leaderboard</code>
+        <p class="indent">
+            <span><code class="arg">filter</code> (optional): Show all tracks, non-battle only, or battle only.<br><br>
+
+            Get the leaderboard for all tracks combined. You can additionally filter the results to show either all the tracks, non-battle, or battle tracks only.
+        </p>
+
+
+
+
+        <code class="cmd">/score top-10</code>
+        <p class="indent">
+            <span><code class="arg">tour-name</code> (optional): If specified, this will get the top 10 leaderboard for a tour. Only available for tours starting with <code>Autumn Tour (2022)</code>. <br>
+            <span><code class="arg">filter</code> (optional): Show all tracks, non-battle only, or battle only.<br><br>
+
+            Show the top 10 scores since the bot started tracking them.
+        </p>
+
+
+
+
+        <code class="cmd">/score player-history</code>
+        <p class="indent">
+            <span><code class="arg">user</code>: @user or the user's Discord ID. <b>Provide <code>user</code> or <code>player-name</code></b>. <br>
+            <span><code class="arg">player-name</code>: The name of the user. In case you don't know their full name, you can add a * to the beginning and/or end to do a wildcard search. <b>Provide <code>user</code> or <code>player-name</code></b>. <br>
+            <span><code class="arg">filter</code> (optional): Show either the global or server leaderboard.<br>
+            <span><code class="arg">sort-by</code> (optional): Sort either by score or action count.<br><br>
+
+            Get someone's history across all tracks.
+        </p>
+
+    </div>
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

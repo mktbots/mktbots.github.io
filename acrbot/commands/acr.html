@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/pfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>ACR Bot</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="acr.html" class="nav-enable-hover nav-category-btn nav-active-page">ACR Commands</a>
+                    <a href="wr.html" class="nav-enable-hover nav-category-btn">WR Commands</a>
+                    <a href="score.html" class="nav-enable-hover nav-category-btn">Score Commands</a>
+                    <a href="settings.html" class="nav-enable-hover nav-category-btn">User Settings</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a id="pfp" href="../"></a>
+
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">ACR Commands</h1>
+        <p>Get resources to maximize your single player scores as well as plan out an ACR top 10 / 100 / 1000 grind.</p>
+
+
+
+        <code class="cmd">/acr</code>
+        <p class="indent">
+            <span><code class="arg">tour-name</code>: The name of the tour. Click <a href="../resources/tips.html#tourname-parser">here</a> for an explanation on how tour names are resolved.</span><br><br>
+
+            Get the top 10 / 100 / 100 cutoffs and projections for a previous tour, or get the projections for the current tour.
+        </p>
+        <div class="img-sidebyside">
+            <div class="img-container" style="height: min(300px, 60vw);">
+                <img class="image img-round-shadow" src="../assets/acr.jpg">
+            </div>
+            <div class="img-container" style="height: min(300px, 60vw);">
+                <img class="image img-round-shadow" src="../assets/acr-projection-graph.jpg">
+            </div>
+        </div>
+        <hr class="line">
+
+
+
+
+
+        <code class="cmd">/acr-projection</code>
+        <p class="indent">Get the ACR projections for the current tour.</p>
+        <div class="img-container" style="height: min(350px, 60vw);">
+            <img class="image img-round-shadow" src="../assets/acr-projection.jpg">
+        </div>
+        <hr class="line">
+
+
+
+
+
+        <code class="cmd">/current-tour-tracks-list</code>
+        <p class="indent">
+            List the current tour's cups and tracks. Allows you to copy and paste the text somewhere if you plan on tracking your progress yourself. <br><br>
+
+            The screenshot below only shows the first 4 cups, but there are 15 cups in total.
+        </p>
+        <div class="img-container" style="height: min(420px, 60vw);">
+            <img class="image img-round-shadow" src="../assets/current-tour-tracks.jpg">
+        </div>
+        <hr class="line">
+
+
+
+
+
+        <code class="cmd">/dkg-chart</code>
+        <p class="indent">
+            Get a chart to help you decide what item is best based on level and base points. You can switch between the regular and Mii charts.
+        </p>
+        <div class="img-sidebyside">
+            <div class="img-container" style="height: min(300px, 60vw);">
+                <img class="image img-round-shadow" src="../assets/dkg-chart.jpg">
+            </div>
+            <div class="img-container" style="height: min(300px, 60vw);">
+                <img class="image img-round-shadow" src="../assets/mii-chart.jpg">
+            </div>
+        </div>
+        <p>The charts, especially the Mii chart, can be a bit overwhelming. Overall, the calculation for each cell is computed as follows:</p>
+        <div class="img-container" id="chart-equation" style="height:3em; padding: 0 75px">
+            <img class="image" src="../assets/chart-calc.png">
+        </div>
+        <hr class="line">
+
+
+
+
+
+        <code class="cmd">/dkr coinbox</code> <i>or</i><br>
+        <code class="cmd">/dkr boomerang</code>
+        <p class="indent">
+            Get a chart that'll allow you to compare coverage for coinbox or boomerang drivers.
+        </p>
+        <div class="img-container" style="height: min(500px, 60vw);">
+            <img class="image" src="../assets/dkr-coinbox.jpg">
+        </div>
+        <hr class="line">
+
+
+
+
+
+        <code class="cmd">/trackinfo</code>
+        <p class="indent">
+            <span><code class="arg">track-name</code>: The name of the track. Click <a href="../resources/tips.html">here</a> for an explanation on how track names are resolved.</span><br>
+            <span><code class="arg">show-middle-shelf-cb</code> (optional): Whether or not middle shelf coinbox drivers should be shown.</span><br>
+            <span><code class="arg">show-wr</code> (optional): Whether or not the current AC world record should be shown.</span><br><br>
+
+            Get the action count goals as well as top shelf drivers, karts, and gliders for a track.<br><br>
+
+            The optional args can be enabled by default through your <a href="settings.html">user settings</a> so that you don't have to enter them each time you use the command.
+        </p>        
+        <div class="img-container" style="height: min(400px, 60vw);">
+            <img class="image" src="../assets/trackinfo.jpg">
+        </div>
+        <hr class="line">
+
+
+
+
+
+        <code class="cmd">/tourinfo</code>
+        <p class="indent">
+            <span><code class="arg">tour-name</code>: The name of the tour. Click <a href="../resources/tips.html#tourname-parser">here</a> for an explanation on how tour names are resolved.</span><br><br>
+
+            Get the banners and a list of all the tracks for a given tour.
+        </p>
+        <div class="img-container" style="height: min(500px, 60vw);">
+            <img class="image" src="../assets/tourinfo.jpg">
+        </div>
+        <hr class="line">
+
+
+
+
+
+        <code class="cmd">/tracklist</code>
+        <p class="indent">
+            Get a list of all the track names and their abbreviations.
+        </p>
+
+        <code class="cmd">/tourlist</code>
+        <p class="indent">
+            Get a list of all the tour names in chronological order.
+        </p>
+
+
+
+
+
+    </div>
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

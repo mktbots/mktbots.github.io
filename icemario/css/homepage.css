@@ -1,0 +1,147 @@
+/* Home page banner */
+
+.home-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0;
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2) 70%,  rgb(30, 30, 30)), url('../assets/banner.png');
+    background-size: cover; 
+    background-position: center; 
+    padding: 0 20px;
+}
+.home-banner-text {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 0 0 5px black;
+}
+.home-banner-text h1 {
+    font-size: clamp(60px, 10vw, 90px);
+    font-weight: 500;
+    margin: 0;
+    color: #1BE8FC;
+}
+.home-banner-text h3 {
+    font-weight: 400;
+}
+
+
+.invite {
+    padding-top: 10vh;
+    padding-bottom: 40vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(rgba(30, 30, 30, 1), rgba(30, 30, 30, 1) 50%, rgba(0, 0, 0, 0));
+}
+.invite p {
+    padding: 0 100px 20px 100px;
+    color: #999;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 10px 10px;
+    text-decoration: none;
+    white-space: nowrap; /* prevent button from splitting when screen is small */
+}
+.invite-btn {
+    background: linear-gradient(144deg,#271de6,#149ce6);
+    color: white;
+}
+.invite-btn:hover {
+    background: linear-gradient(144deg,#0000ff,#00d9ff);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+.server-btn {
+    background: linear-gradient(144deg,#591de6,#a414e6);
+    color: white;
+}
+.server-btn:hover {
+    background: linear-gradient(144deg,#6a00ff,#cc00ff);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 600px) {
+    .invite p {
+        padding: 3vh 10px;
+    }
+}
+
+#arrow-down {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -25px;
+    background: url('../../assets/arrow-down.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+    animation: updown 2s ease-in-out infinite;
+}
+@keyframes updown {
+    0% { transform: translateY(-5px); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(-5px); }
+}
+
+/* ------------------------------------------------------- */
+/* Home page featured commands */
+
+.homepage-feature-div {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.homepage-feature-container {
+    background-color: #35393e;
+    border-radius: 10px;
+    max-width: 450px;
+    padding: 0 5%;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 5px black;
+}
+.homepage-feature-container img {
+    border-radius: 5px;
+}
+.feature-header {
+    margin-bottom: 0;
+    color: #00B0F0;
+}
+#homepage-features-text {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 10px auto 10px auto;
+    max-width: 700px;
+    padding: 0 0 10px 0;
+    border-bottom: 2px solid #eee;
+    display: block;
+}
+
+
+/* ------------------------------------------------------- */
+/* hide and show animations */
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.7s;
+    transform: translateY(-20px) !important;
+}

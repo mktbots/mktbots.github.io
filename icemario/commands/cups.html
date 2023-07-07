@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn nav-active-page">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Cups Tracker</h1>
+
+		<code class="cmd">!cups &lttime&gt</code>
+        <p class="indent">
+			Get the cups and tracks that are live at a certain time for multiplayer. Click <a href="../resources/tips.html">here</a> for an explanation on how dates are parsed.<br><br>
+            
+            Example use cases: <br>
+            <ul class="indent">
+                <li><code class="example" style="line-height: 1.7;">!cups now</code> </li>
+                <li><code class="example" style="line-height: 1.7;">!cups 8pm edt</code> </li>
+                <li><code class="example" style="line-height: 1.7;">!cups 7:00 am pdt</code> </li>
+                <li><code class="example" style="line-height: 1.7;">!cups 10/29 22:00 CEST</code> </li>
+            </ul>
+		</p>
+        <div class="img-container" style="height: 400px;">
+            <img class="image img-round-shadow" src="https://media.discordapp.net/attachments/771426480126558229/903793248110256138/image0.png">
+        </div>
+
+		<code class="cmd">!stickycups</code>
+		<p class="indent">
+			Initialize a sticky cups message. This will allow Ice Mario to update the image of the current cups once a minute. Ideally, this command should be used in a read-only Discord channel for members to look at without chatting. There can only be one <code>stickycups</code> message per server. To move an existing <code>stickycups</code> message to a new channel, use <code class="example">!stickycups</code> in the new channel. To stop, simply delete the message. Note: you will need <code>MANAGE_MESSAGES</code> permission to use this command. 
+		</p>
+
+        <div class="img-container" style="height: 420px;">
+            <img class="image img-round-shadow" src="https://media.discordapp.net/attachments/771426480126558229/904503714415534121/image0.png">
+        </div>
+
+    </div>  
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

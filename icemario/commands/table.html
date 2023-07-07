@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn nav-active-page">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+			
+        </div>
+
+		<a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Table Maker</h1>
+
+        <p>
+			A feature-packed clan war table maker! If needed, table commands can be disabled through your server's <a href="config.html">config settings</a>.
+		</p>
+
+		<code class="cmd">
+			!table [style options]<br>
+			[table options]<br>
+			[table data]
+		</code>
+		<div class="alias-wrapper"><span class="alias">Alternate: <code>!tablel</code></span></div>
+		<p class="indent">
+			To add team logos, use <code class="example">!tablel</code> instead of <code class="example">!table</code>, and if a team has a logo but the color is not set, the text will be white by default. <br><br>
+
+			Click <a href="logos.html">here</a> to learn more about adding custom logos, and click <a href="flags.html">here</a> to learn more about custom flags.
+		</p>
+
+		<div class="img-container" style="height: 600px;">
+            <img class="image img-round-shadow" src="../assets/table-overview.png">
+        </div>
+
+		<p class="indent">
+			<code class="arg">style options</code>: Optional style modifiers. All style options should be written on the top line, separated by a space.
+			<h3 class="yellow" style="margin-left: 60px;">Tournament themes</h3>
+			<span style="margin-left: 60px;">There can only be one tournament theme selected. </span>
+
+			<ul class="indent">
+				<li><code>cwl</code>: Clan War League table (MKT)</li>
+				<li><code>cyclone</code>: Cyclone table (MKT)</li>
+				<li><code>sw</code>: Survival War table (MKT)</li>
+				<li><code>wc</code>: MKT World Cup table (MKT)</li>
+				<li><code>mku</code>: Mario Kart Universal table (MK8DX)</li>
+				<li><code>pl</code>: Pacific League table (MK8DX)</li>
+				<li><code>mkcf</code>: MKCentral Frontier table (MK8DX)</li>
+				<li><code>summit</code>: MKCentral Summit table (MK8DX)</li>
+			</ul>
+
+			<h3 class="yellow" style="margin-left: 60px;">Additional style options</h3>
+
+			<ul class="indent">
+				<li><code>mkt</code>: Add the MKT logo in the middle of the table. <code>cyclone</code> and <code>sw</code> will automatically add it, unless you specify <code>nomkt</code></li>
+				<li><code>nomkt</code>: Don't add the mkt logo. This option can be used to force the table maker to not add the MKT logo.</li>
+				<li><code>bold</code>: Make the player names, and player scores bold.</li>
+				<li><code>nobold</code>: This option can be used to force the table maker to not make any of the text bold.</li>
+				<li><code>emote</code> or <code>emoji</code>: Allows you to add emojis (including Discord emojis) to the table data. Without this, emojis may not be parsed correctly.</li>
+			</ul>
+		</p>
+
+		<p class="indent">
+			<code class="arg">table options</code>: Optional table modifiers. Each table option should be on its own line, and it should start with a #.
+		</p>
+
+		<div class="indent">
+			<ul>
+				<li><code>#date &ltdate&gt</code>: Set the date on the header. The format should be <code>dd mmm yyyy</code> </li>
+				<li><code>#title &lttitle&gt</code>: Set a custom title to the left of the date. You can add a dot <code class="example">•</code> to separate words with a dot.</li>
+				<li><code>#icon &lturl&gt</code>: Set a custom icon image on the top left of the table</li>
+				<li><code>#centericon &lturl&gt</code>: Set a custom icon image in the center of the table</li>
+				<li><code>#dotalpha &ltval&gt</code>: Set the dot transparency. The value should between 0 and 1; a value of 0 will not display the dots.</li>
+				<li><code>#dotcolor &lt#000000&gt</code>: Set the dot color in hex format</li>
+				<li><code>#bgbright &ltval&gt</code>: Set the background brightness if a background image is being used. Val should be between 0 and 1 where 0 is full dark and 1 is full bright.</li>
+			</ul>
+		</div>
+
+		<p class="indent">
+			<code class="arg">table data</code>: Here is an overview:
+		</p>
+
+		<div class="indent">
+			<ul>
+				<li>The table data should start with the team name.</li>
+				<li style="margin-left: 30px;">You can add the full team name below the abbreviation on the table by including a dash like so: <br><code class="example">ABB - Full Team Name</code>. This is not available if using <code>!tablel</code>.</li>
+				<li style="margin-left: 30px;">You can set the team's text color by including a hex color code to the right, like <code class="example">#FF0000</code>. This will override the colors if !tablel is used, but this will have no effect if a style option is used (such as cwl, cyclone, or mku) </li>
+				
+				<li>Add player names below the team name.</li>
+				<li style="margin-left: 30px;">Format: <code class="example">PlayerName [Flag] Score</code>. Adding a flag is optional. A list of standard country flags can be found <a href="https://gb.hlorenzi.com/help/flags" target="_blank">here</a>, and you can learn more about custom flags <a href="flags.html">here</a>. Regarding player scores, you can use addition to calculate them, like <code class="example">45+10+15</code>.</li>
+				<li style="margin-left: 30px;">To add a player penalty, use <code class="example">score-penalty</code> without a space. For example, if someone scored 80 points with a penalty of 10, use <code class="example">80-10</code>. </li>
+				
+				<li>To add more teams, simply add the next team's name below the previous team's last player.</li>
+				<li>To add a team penalty, write <code class="example">Penalty</code> followed by the penalty amount. For example, if a team has a penalty of 5, use <code class="example">Penalty -5</code>. </li>
+			</ul>
+		</div>
+
+		<p class="indent">
+			<code class="arg">table background</code>: To set the table background with an image, attach an image to the command. Then, the default table option values are dotalpha=0, and bgbright=0.7. You can add the table option <code class="example">#bgbright 1</code> to make the background brighter, but it may cause some text to be harder to read.
+		</p>
+
+		<p>
+			Ice Mario will do its best to make sure the points add up correctly. If the total is between 400 and 500, it will make sure the points add to 468, and if the total is between 900 and 1050, it will make sure the points add to 984. Outside this range, Ice Mario will check to see if the total is divisible by either 39 or 82. If everything is correct, the table message will be green. Otherwise, there will be one or more warning messages.
+		</p>
+
+		<hr class="line">
+
+		<h2 class="yellow">Tournament Themes</h2>
+
+		<div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/cwl.png">
+        </div>
+		<div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/cyclone.png">
+        </div>
+		<div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/wc.png">
+        </div>
+		<div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/survival.png">
+        </div>
+		<div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/mku.png">
+        </div>
+		<div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/pl.png">
+        </div>
+		<div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/mkcf.png">
+        </div>
+		<div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/summit.png">
+        </div>
+
+    </div> 
+	
+	<div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* Home page banner */
+
+.home-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0;
+    /* height: 300px; */
+    height: 45vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgb(20, 20, 20)), url('../assets/icemariobanner.png');
+    /* background: rgba(0, 0, 0, 0.5); */
+    background-size: cover; 
+    background-position: center; 
+    padding: 0 20px;
+}
+.home-banner-text {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 0 0 5px black;
+}
+.home-banner-text h1 {
+    font-size: 90px;
+    font-weight: 500;
+    margin: 0;
+    color: rgb(0, 183, 255);
+}
+.home-banner-text h3 {
+    font-weight: 400;
+}
+
+@media only screen and (min-height: 800px) {
+    .home-banner {
+        height: 400px;
+    }
+}
+
+.invite {
+    height: 25vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(rgba(20, 20, 20, 1), rgba(20, 20, 20, 1) 50%, rgba(0, 0, 0, 0));
+}
+.invite p {
+    padding: 0 100px 20px 100px;
+    color: #999;
+    text-align: center;
+    margin: 0;
+}
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 10px 10px;
+}
+.invite-btn {
+    background: linear-gradient(144deg,#271de6,#149ce6);
+    color: white;
+}
+.invite-btn:hover {
+    background: linear-gradient(144deg,#0000ff,#00d9ff);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+.server-btn {
+    background: linear-gradient(144deg,#591de6,#a414e6);
+    color: white;
+}
+.server-btn:hover {
+    background: linear-gradient(144deg,#6a00ff,#cc00ff);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 600px) {
+    .home-banner-text h1 {
+        font-size: 50px;
+    }
+    .invite p {
+        padding: 3vh 10px;
+    }
+}
+
+/* ------------------------------------------------------- */
+/* Home page featured commands */
+
+.homepage-feature-div {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.homepage-feature-container {
+    background-color: #35393e;
+    border-radius: 10px;
+    width: 85%;
+    padding: 0 5%;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 5px black;
+}
+.homepage-feature-container img {
+    border-radius: 5px;
+}
+.feature-header {
+    font-weight: 500px;
+    margin-bottom: 0;
+    color: #00B0F0;
+}
+#homepage-features-text {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 10px auto 10px auto;
+    width: 75%;
+    padding: 0 0 10px 0;
+    border-bottom: 2px solid #eee;
+}

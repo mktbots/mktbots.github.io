@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn nav-active-page">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Helpful Tips</h1>
+
+        <h2 id="date-parser" class="yellow">Date Parser</h2>
+        <p>
+            Dates can be parsed a few different ways. <br><br>
+            
+            The bot will first try to parse dates with JavaScript's 
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse" target="_blank">Date.parse()</a> 
+            method. The link to Date.parse() will show some examples, but they tend to be very long and are unreasonable to type out by hand.
+            <br><br>
+
+            If the above test fails, then the bot will try parsing it in the format <code>&ltday&gt &lttime&gt &lttimezone&gt</code>.
+
+            <span class="indent">
+                <ul>
+                    <li> <span><code class="arg">day</code>: Either spelled out (<code class="example">July 1</code>) or <code>mm/dd</code> (<code class="example">7/1</code>). Reversing the month and day is unsupported, and the date may not parse.<br></span> </li>
+                    <li> <span><code class="arg">time</code>: <code class="example">3 pm</code>, <code class="example">10:30 am</code>, or <code class="example">21</code>/<code class="example">21:00</code> without am/pm if using 24 hour format.<br></span> </li>
+                    <li> <span><code class="arg">timezone</code>: Must be either <code>pdt</code>, <code>cdt</code>, <code>mx</code>, <code>edt</code>, <code>utc</code>, <code>cest</code>, or <code>jst</code>. Daylight savings time, like <code>pdt</code> and <code>pst</code> are converted automatically.<br></span> </li>
+                </ul>
+
+                If you omit the day, like in <code class="example">11am edt</code>, and the current time is past that, like if it is 3:00 PM EDT, then the parser will parse it as 11:00 AM the next day. <br><br>
+
+                Some notes that can make the date clearer for other server members but are ultimately ignored by the parser: 
+                <ul>
+                    <li>You can add the word "at" or "@" between <code>day</code> and <code>time</code>.</li>
+                    <li>You can use <code class="example">today</code> in place of the <code>day</code> argument, and that will parse the day as the current day.</li>
+                </ul>
+            </span>
+
+
+            The following are some examples that will all resolve to July 1 at 12:00 PM Pacific Time:
+            <ul>
+                <li><code class="example-tall">July 1, 2023 12:00 pm pdt</code></li>
+                <li><code class="example-tall">July 1 at 12pm pst</code></li>
+                <li><code class="example-tall">7/1/23 at 3pm edt</code></li>
+                <li><code class="example-tall">7/1 15:00 edt</code></li>
+                <li><code class="example-tall">7/1 21 cest</code></li>
+            </ul>
+
+            Also, you can use <code class="example">now</code>, and that will parse the date as the current time. For example, <code class="example">!cups now</code> is helpful to get the mp cups that are currently active.
+        </p>
+    </div>  
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

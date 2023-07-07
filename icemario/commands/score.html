@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn nav-active-page">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Score Tracker</h1>
+        <p>
+			Keep track of your team's score during a war. <br><br>
+
+            You can change your team's default name or disable all score commands through your server's <a href="config.html">config settings</a>.
+		</p>
+
+        <br>
+        <h2 class="yellow">Clan War Commands</h2>
+
+		<code class="cmd tall-line">!startwar opponentTeam</code><i> or</i> <br>
+        <code class="cmd">!startwar yourTeam opponentTeam</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!sw</code></span></div>
+		<p class="indent">
+			Starts a new score tracker by clearing the previous scores and sets the team names. This 
+            is equivalent to using <code class="example">!u all</code> then <code class="example">!setteams</code>. <br><br>
+            
+            If you only specify the opponent team, then yourTeam's default value is 
+            <code>default-team-name</code> (default value is "team1"); you can change this by updating 
+            the server <a href="config.html">config settings</a>. If <code>yourTeam</code> is provided, this will override the 
+            value in the config settings.
+        </p>
+
+		<code class="cmd tall-line">!setteams opponentTeam</code><i> or</i> <br>
+		<code class="cmd">!setteams yourTeam opponentTeam</code>
+        <p class="indent">
+			Set the opponent team or both team names. This can be skipped if you use 
+            <code class="example">!startwar</code>. Also, this command can be used after you've already entered scores.
+        </p>
+
+		<code class="cmd tall-line">!a x1 x2 x3 x4 x5 x6</code> <br>
+        <p class="indent">
+			Adds the score for a race using finish positions xN. For example, use x1 to x4 for a 4v4 event, and x1 to x6 for 6v6. The supported formats are 2v2 to 6v6.<br><br>
+		</p>
+        <div class="img-container" style="height: 350px;">
+            <img class="image img-round-shadow" src="../assets/score-cmd.jpg">
+        </div>
+        <p class="indent">
+            Ice Mario will automatically determine the race format and score distribution based on the number of positions the first time the <code class="example">!a</code> command is used. Below is the score distribution for the different formats:
+        </p>
+        <div class="img-container" style="height: 150px;">
+            <img class="image img-round-shadow" src="../assets/score-distribution.png">
+        </div>
+
+		<code class="cmd">!u [optional #]</code>
+		<p class="indent">
+			Undo a race. If <code>optional #</code> is provided, that race will be removed. Otherwise, it 
+            will undo the most recent race score. <br><br>
+
+			Examples: 
+			<ul style="margin-left: 40px">
+				<li><code class="example">!u</code>: Undo the most recent race.</li>
+				<li><code class="example">!u 7</code>: Undo race 7.</li>
+			</ul>
+        </p>
+
+		<code class="cmd">!u all</code>
+        <p class="indent">Clears all the race scores in the current channel.</p>
+
+		<code class="cmd">!penalty &ltpoints&gt &ltteam name&gt</code>
+		<p class="indent">Applies a penalty to the specified team. For example, if your opponent's team name is <code>a</code>, you can add a 10 point penalty by doing <code class="example">!penalty 10 a</code>. </p>
+
+
+
+        <br>
+        <hr class="line">
+        <h2 class="yellow">Survival War Commands</h2>
+		<p>The following commands can be used to keep track of a survival war, either 4v4 or ffa:</p>
+
+		<code class="cmd">
+            !startsurvival numLives<br>
+            team1Name, player1, player2, player3, player4<br>
+            team2Name, player5, player6, player7, player8
+        </code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!ss</code></span></div>
+        <p class="indent">
+			Starts a team survival war life tracker. See below to see how to create an FFA survival 
+            tracker. Note: There should be 3 lines total. 
+		</p>
+
+        <div class="img-container" style="height: 350px;">
+            <img class="image img-round-shadow" src="../assets/survival-ss.jpeg">
+        </div>
+
+		<code class="cmd">!startsurvival numLives player1, player2, ..., playerN</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!ss</code></span></div>
+		<p class="indent">
+			Starts an FFA survival war life tracker. For FFA, the command and player list should all be 
+            on the same line. There can be any number of players, and each name should be separated by a comma. 
+		</p>
+
+        <div class="img-container" style="height: 270px;">
+            <img class="image img-round-shadow" src="../assets/survival-ffa.jpeg">
+        </div>
+
+		<code class="cmd">!x player#</code>
+		<p class="indent">
+			Remove a life from someone.
+		</p>
+
+        <div class="img-container" style="height: 285px;">
+            <img class="image img-round-shadow" src="../assets/survival-x.jpg">
+        </div>
+
+		<p>
+			Note: You can use <code class="example">!u</code> and <code class="example">!setteams</code> during survival wars. 
+            For the team survival format, once a team has lost all their lives, Ice Mario will 
+            automatically generate a table!
+		</p> 
+		
+    </div>
+    
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+:root {
+    --nav-width: 275px;
+    --nav-bg-color:#2d3136;
+    --nav-bg-hover-color: #222222;
+    --nav-text-color-base: #b7b7b7;
+    --nav-text-color-hover: #f1f1f1;
+    --transition-speed: 0.3s;
+}
+
+#home-icon {   
+    float: left;
+    margin-left: 15px;
+    padding: 10px;
+    height: 30px;
+}
+

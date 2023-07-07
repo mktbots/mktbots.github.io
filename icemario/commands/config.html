@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+
+	<style> .default-color {color: rgb(86, 192, 40);} </style>
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn nav-active-page">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Server Configuration</h1>
+
+        <p>These are all the server config options currently available, as well as commands to set them. Note: the following commands will only work if you have <code>MANAGE_MESSAGES</code> permission.</p>
+
+		<code class="cmd">im!config</code>
+		<p class="indent">
+			List all the current config options for the server.
+        </p>
+
+		<code class="cmd">im!config key value</code>
+        <p class="indent">
+			Set the config option <code>key</code> with the value <code>value</code>. A list of keys can be found below. For example, to enable the <code>!choose</code> command, use <code class="example">im!config enable-choose true</code>
+        </p>
+
+		<code class="cmd">im!resetconfig</code>
+        <p class="indent">
+			Reset all the server config options to the default values. The default values are shown below.
+		</p>
+
+		<hr class="line">
+
+		<p>The following is a list of all the <code>config options</code> as well as their <span class="default-color">default values</span>:</p>
+    
+		<div class="indent">
+
+
+			<h3>Clan War Scheduler</h3>
+			<ul>
+				<li><code>enable-schedule</code> (Default: <span class="default-color">true</span>): Enable or disable all scheduler commands and reactions.</li>
+				<li><code>ping-one-hour-before</code> (Default: <span class="default-color">true</span>): If set to true, members that have reacted to the schedule will be pinged 1 hour before the scheduled event. If set to false, there will not be such a reminder.</li>
+				<li><code>ping-15-minutes-before</code> (Default: <span class="default-color">false</span>): If set to true, members that have reacted to the schedule will be pinged 15 minutes before the scheduled event. If set to false, there will not be such a reminder.</li>
+				<li><code>ping-when-starting</code> (Default: <span class="default-color">true</span>): If set to true, members that have reacted to the schedule will be pinged when it is time for the scheduled event. If set to false, there will not be such a reminder.</li>
+				<li><code>delete-schedule-after-one-hour</code> (Default: <span class="default-color">false</span>): If set to true, schedules will automatically be deleted 1 hour after the scheduled event. If set to false, the schedule will not be deleted.</li>
+				<li><code>moderators-only-for-scheduler</code> (Default: <span class="default-color">false</span>): If set to true, only members with <code>MANAGE_MESSAGES</code> permission can create and edit schedule. If set to false, anyone in the server can do those things.</li>				
+				<li><code>gather-size</code> (Default: <span class="default-color">4</span>): The number of participants that need to join in order for the schedule to be considered full (the schedule color will turn green).</li>
+			</ul>
+
+
+			<h3>Clan War Score Tracker</h3>
+			<ul>
+				<li><code>enable-score-tracker</code> (Default: <span class="default-color">true</span>): Enable or disable all score tracker commands.</li>
+				<li><code>default-team-name</code> (Default: <span class="default-color">Team1</span>): Sets the default team name for your server. You can use this to set your team tag so that you don't have to set it everytime you use <code class="example">!startwar</code> or <code class="example">!setteams</code>.</li>
+			</ul>
+
+
+			<h3>Table Maker</h3>
+			<ul>
+				<li><code>enable-table-maker</code> (Default: <span class="default-color">true</span>): Enable or disable all table maker commands. Note that this does not have any effect for logo commands such as <code class="example">!addlogo</code> or <code class="example">!getlogo</code>.</li>
+				<li><code>enable-logo-colors</code> (Default: <span class="default-color">true</span>): Enable or disable displaying colors when using the <code class="example">!tablel</code> command. If set to false, the text will be white by default, but you can still set the color for a team by specifying it to the right of the team name (like <code>DY #FF0000</code>).</li>
+			</ul>	
+
+
+			<h3>Lounge</h3>
+			<ul>
+				<li><code>enable-lounge-stats</code> (Default: <span class="default-color">true</span>): Enable or disable all MKTC lounge commands such as <code class="example">!mmr</code> and <code class="example">!stats</code>.</li>
+			</ul>
+
+
+			<h3>Mogi</h3>
+			<ul>
+				<li><code>enable-mogi-gatherer</code> (Default: <span class="default-color">false</span>): Enable or disable all mogi commands.</li>
+				<li><code>room-size</code> (Default: <span class="default-color">8</span>): The number of people needed to start a mogi.</li>
+				<li><code>max-subs</code> (Default: <span class="default-color">2</span>): The number of people that can !c once a mogi has started.</li>
+				<li><code>inactive-minutes-until-drop</code> (Default: <span class="default-color">25</span>): The number of inactive minutes before someone is dropped from the mogi.</li>
+				<li><code>minutes-to-ping-before-drop</code> (Default: <span class="default-color">5</span>): The number of minutes before <code>inactive-minutes-until-drop</code> to ping someone to have them type something in the chat.</li>
+				<li><code>max-voting-minutes</code> (Default: <span class="default-color">2</span>): The number of minutes to wait for people to vote on the mogi format after it has started. If the votes did not get 4 votes, then this will close the mogi voting once time is up.</li>
+				<li><code>should-ping-here</code> (Default: <span class="default-color">true</span>): Whether or not to ping @here.</li>
+				<li><code>only-moderator-start</code> (Default: <span class="default-color">false</span>): Whether or not only members with <code>MANAGE_MESSAGES</code> can start a mogi.</li>
+				<li><code>only-moderator-end</code> (Default: <span class="default-color">false</span>): Whether or not only members with <code>MANAGE_MESSAGES</code> can end a mogi.</li>
+				<li><code>only-moderator-remove</code> (Default: <span class="default-color">false</span>): Whether or not only members with <code>MANAGE_MESSAGES</code> can remove someone from a mogi.</li>
+				<li><code>enable-voting</code> (Default: <span class="default-color">false</span>): Enable or disable all voting one a mogi fills.</li>
+				<li><code>enable-voting-ffa</code> (Default: <span class="default-color">true</span>): Enable or disable the option to vote for ffa.</li>
+				<li><code>enable-voting-2v2</code> (Default: <span class="default-color">true</span>): Enable or disable the option to vote for 2v2.</li>
+				<li><code>enable-voting-4v4</code> (Default: <span class="default-color">true</span>): Enable or disable the option to vote for 4v4.</li>
+				<li><code>randomize-teams-2v2</code> (Default: <span class="default-color">true</span>): Whether or not to randomize 2v2 teams when voting is complete.</li>
+				<li><code>randomize-teams-4v4</code> (Default: <span class="default-color">true</span>): Whether or not to randomize 4v4 teams when voting is complete.</li>
+			</ul>
+
+
+			<h3>Custom Commands</h3>
+			<ul>
+				<li><code>enable-custom-commands</code> (Default: <span class="default-color">true</span>): Enable or disable custom commands in your server.</li>
+				<li><code>allow-anyone-to-update-cc</code> (Default: <span class="default-color">true</span>): If set to true, anyone in the server can add, update, or delete custom commands. If set to false, only people with <code>MANAGE_MESSAGES</code> permission can do so.</li>
+			</ul>
+
+
+			<h3>Miscellaneous</h3>
+			<ul>
+				<li><code>enable-choose</code> (Default: <span class="default-color">false</span>): Enable or disable the <code class="example">!choose</code> command.</li>
+				<li><code>enable-randomize-teams</code> (Default: <span class="default-color">false</span>): Enable or disable the <code class="example">!teams</code> command to randomize teams for a mogi.</li>
+			</ul>
+
+		</div>
+		
+    </div>  
+
+	<div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

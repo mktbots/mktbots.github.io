@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/commands.css">
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../../"> <img id="home-icon" src="../assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="../" id="nav-home-btn">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="../commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="../commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="../commands/logos.html" class="nav-enable-hover nav-category-btn nav-active-page">Table Logos</a>
+                    <a href="../commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="../commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="../commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="../commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="../commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="../commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="../commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="../resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="../resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="../resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="../resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <a href="../" id="pfp"></a>
+    </div>
+
+    <div id="main-content">
+        <h1 class="montserrat-font blue">Custom Logos Manager</h1>
+        <p>Custom logos manager related to the <a href="table.html">table maker</a>. </p>
+
+
+
+		<code class="cmd">!logoget teamName</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!getlogo</code></span></div>
+		<p class="indent"> 
+            <span><code class="arg">teamName</code>: The name of a team.</span><br><br>
+            Send back the team logo sepcified by <code>teamName</code> if available. 
+        </p>
+
+
+
+		<code class="cmd">!logolist category</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!logoslist, !listlogo, !listlogos</code> </span></div>
+		<p class="indent"> 
+            <span><code class="arg">category</code> (optional): Valid categories are: <code>mkt</code>, <code>mkt2</code>, <code>mk8dx</code>, <code>wc</code>, or <code>unsorted</code>.</span><br><br>
+            Get a list of all the logos available, or only the logos in the specified category if <code>category</code> is provided. 
+        </p>
+
+
+        
+		<code class="cmd">!logolistimage category</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!lli</code></span></div>
+		<p class="indent"> 
+            <span><code class="arg">category</code>: Valid categories are: <code>mkt</code>, <code>mkt2</code>, <code>mk8dx</code>, <code>wc</code>, or <code>unsorted</code>.</span><br><br>
+            Get a list of all the logo icons in a category as an image.
+        </p>
+
+
+
+		<code class="cmd">!logocategory teamName category</code>
+		<p class="indent"> 
+            <span><code class="arg">teamName</code>: The name of a team.</span><br>
+            <span><code class="arg">category</code>: Valid categories are: <code>mkt</code>, <code>mkt2</code>, <code>mk8dx</code>, <code>wc</code>, or <code>unsorted</code>.</span><br><br>
+            Update the category for a logo. This is used to sort logos when using the <code class="example">!logolist</code> or <code class="example">!logolistimage</code> commands.
+        </p>
+
+
+
+		<code class="cmd">!logoadd teamName imageLink</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!addlogo</code></span></div>
+		<p class="indent"> 
+            <span><code class="arg">teamName</code>: The name of a team. Should be 1 word as well as at most 7 characters.</span><br>
+            <span><code class="arg">imageLink</code> (optional): An image link.</span><br><br>
+            Adds or updates a logo. You need to either provide the logo link in <code>imageLink</code> if you have the url, or send the image when using the command. If a name already exists, a message will appear prompting you to either update the log or cancel. <br><br>
+            Due to the high number of logos, old logos in the <code>unsorted</code> category may be automatically removed after 30 days. If you only plan on using a logo once, please remove it after creating your table.
+        </p>
+
+
+
+		<code class="cmd">!logoremove teamName</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!removelogo</code></span></div>
+		<p class="indent">
+            <span><code class="arg">teamName</code>: The name of a team.</span><br><br>
+            Removes a logo.
+        </p>
+
+
+
+		<code class="cmd">!logocolor teamName color</code>
+		<p class="indent">
+            <span><code class="arg">teamName</code>: The name of a team.</span><br>
+            <span><code class="arg">color</code> (optional): The color to update the logo with in hex format. Ex: <code class="example">#FF0000</code>.</span><br><br>
+            If <code>color</code> is provided, this will update the color for the team. Otherwise, the current color of the team is returned. 
+        </p>
+
+
+
+		<code class="cmd">!logolock teamName</code>
+		<p class="indent">
+            <span><code class="arg">teamName</code>: The name of a team.</span><br><br>
+            Locks a logo to your server. This will prevent a different server from changing the logo, such as changing the logo image, removing the logo, changing the color, or changing the category. It's recommended you don't lock logos unless absolutely necessary.
+        </p>
+
+
+
+		<code class="cmd">!logounlock teamName</code>
+		<p class="indent">
+            <span><code class="arg">teamName</code>: The name of a team.</span><br><br>
+            Unlocks a logo from your server.
+        </p>
+
+
+
+		<code class="cmd" style="color:red">!logo team1 team2</code>
+		<p class="indent">
+            <span><code class="arg">team1</code>: The name of the first team.</span><br>
+            <span><code class="arg">team2</code>: The name of the second team.</span><br><br>
+            Note: this command is deprecated, and <code class="example">!tablel</code> should be used instead. This adds team logos to an already made table. Use a dash (-) to omit a logo</p>
+    </div>  
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

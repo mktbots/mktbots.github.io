@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/icemariopfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Ice Mario</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/homepage.css">
+
+</head>
+<body>
+    <div id="header">
+        <span id="nav-openbtn" onclick="handleNavButton()">&#9776;</span>
+        <a href="../"> <img id="home-icon" src="assets/mkt-bots-logo.png"></a>
+
+        <div id="nav">
+            <span id="nav-closebtn" onclick="closeNav()">&times;</span>
+            <a href="#" id="nav-home-btn" class="nav-active-page">Home</a>
+
+            <div class="nav-category nav-top-border">
+                <p>Commands</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="commands/scheduler.html" class="nav-enable-hover nav-category-btn">Clan War Scheduler</a>
+                    <a href="commands/score.html" class="nav-enable-hover nav-category-btn">Score Tracker</a>
+                    <a href="commands/table.html" class="nav-enable-hover nav-category-btn">Table maker</a>
+                    <a href="commands/logos.html" class="nav-enable-hover nav-category-btn">Table Logos</a>
+                    <a href="commands/flags.html" class="nav-enable-hover nav-category-btn">Table Flags</a>
+                    <a href="commands/cups.html" class="nav-enable-hover nav-category-btn">Cups Tracker</a>
+                    <a href="commands/lounge.html" class="nav-enable-hover nav-category-btn">MKTC Lounge</a>
+                    <a href="commands/mogi.html" class="nav-enable-hover nav-category-btn">Mogi Gatherer</a>
+                    <a href="commands/custom-commands.html" class="nav-enable-hover nav-category-btn">Custom Commands</a>
+                    <a href="commands/miscellaneous.html" class="nav-enable-hover nav-category-btn">Miscellaneous Commands</a>
+                    <a href="commands/config.html" class="nav-enable-hover nav-category-btn">Server Configuration</a>
+                </div>
+            </div>
+
+            <div class="nav-category nav-top-border">
+                <p>Resources</p>
+                <div class="nav-category-btn-wrapper">
+                    <a href="resources/tips.html" class="nav-enable-hover nav-category-btn">Helpful Tips</a>
+                    <a href="resources/contact.html" class="nav-enable-hover nav-category-btn">Contact</a>
+                    <a href="resources/privacy.html" class="nav-enable-hover nav-category-btn">Privacy Policy</a>
+                    <a href="resources/terms.html" class="nav-enable-hover nav-category-btn">Terms of Service</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="pfp"></div>
+
+    </div>
+
+    <div id="main-content">
+        <div class="home-banner">
+            <div class="home-banner-text">
+                <h1>Ice Mario</h1>
+                <h3>A Powerful Mario Kart Tour Multiplayer Bot</h3>
+            </div>
+        </div>
+
+        <div class="invite">
+            <p>Click below to add Ice Mario to your server, or join my support server to be kept updated on any new changes!</p>
+            <div>
+                <a href="https://discord.com/api/oauth2/authorize?client_id=761673331388317717&permissions=274878269504&scope=bot" class="btn invite-btn">Add to Discord</a>
+                <a href="https://discord.gg/wUkcdQv8Kx" class="btn server-btn">Join Support Server</a>
+            </div>
+        </div>
+
+        <div id="arrow-down"></div>
+
+        <h1 id="homepage-features-text" class="hide">Highlighted Features</h1>
+
+        <div class="homepage-feature-div">
+            <div class="homepage-feature-container hide">
+                <h2 class="feature-header">Clan War Scheduler</h2>
+                <p>Keep track of everyone's availability. Reminders can be customized to ping the participants before an event.</p>
+                <div class="img-container" style="height: min(250px, 60vw);">
+                    <img src="assets/scheduler.png">
+                </div>
+            </div>
+
+            <div class="homepage-feature-container hide">
+                <h2 class="feature-header">Score Tracker</h2>
+                <p>An easy to use command that'll allow your team to keep track of scores.</p>
+                <div class="img-container" style="height: min(300px, 60vw);">
+                    <img src="assets/score.png">
+                </div>
+            </div>
+
+            <div class="homepage-feature-container hide">
+                <h2 class="feature-header">Results Table</h2>
+                <p>A feature-packed table maker. Easily add custom logos, player flags, use tournament-specific styles, and easily add a background.</p>
+                <div class="img-container" style="height: min(300px, 60vw);">
+                    <img src="assets/table.png">
+                </div>
+            </div>  
+
+            <div class="homepage-feature-container hide">
+                <h2 class="feature-header">Cups Tracker</h2>
+                <p>Know what cups and tracks are on at a given time</p>
+                <div class="img-container" style="height: min(400px, 60vw);">
+                    <img src="assets/cups.png">
+                </div>
+            </div>
+
+            <div class="homepage-feature-container hide">
+                <h2 class="feature-header">MKT Lounge Stats</h2>
+                <p>See how you stack against other lounge players</p>
+                <div class="img-container" style="height: min(250px, 60vw);">
+                    <img src="assets/stats.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>MKT Bots and all Discord bots featured are not affiliated with Nintendo.</p>
+        <p>Created by jimmy5440</p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

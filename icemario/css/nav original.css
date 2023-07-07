@@ -1,0 +1,101 @@
+:root {
+    --nav-width: 275px;
+    --transition-speed: 0.3s;
+}
+
+#nav {
+    min-width: var(--nav-width);
+    width: var(--nav-width);
+    transition: var(--transition-speed);
+    padding-top: 10px;
+    background-color: #2d3136;
+    border-right: 1px solid #666666;
+}
+#nav a {
+    padding: 8px 0px 8px 15px;
+    text-decoration: none;
+    color: #b7b7b7;
+    display: block;
+    transition: var(--transition-speed);
+    margin-left: 15px;
+    border-radius: 3px;
+}
+#nav a:hover, #nav-closebtn:hover {
+    color: #f1f1f1;
+}
+
+.nav-enable-hover:hover {
+    background-color: #222222;
+    border-left: 3px solid rgb(52, 135, 202);
+    transition: 0.1s;
+}
+
+#nav-openbtn {
+    display: none;
+    background: rgba(0, 0, 0, 0);
+    padding: 5px;
+    color: white;
+    font-size: 30px;
+    border: none;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    cursor: pointer;
+}
+#nav-closebtn {
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    right: 5px;
+    font-size: 36px;
+    margin: 0;
+    display: none;
+    cursor: pointer;
+    color: #b7b7b7;
+    padding: 0px 10px;
+}
+
+.nav-category {
+    padding-left: 0px;
+}
+.nav-category p {
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    color: #dddddd;
+}
+.nav-category a {
+    padding-left: 10px !important;
+}
+
+.nav-top-border {
+    border-top: 1px solid #aaaaaa;
+    margin: 10px 20px;
+}
+
+.nav-active-page {
+    border-left: 3px solid rgb(0, 140, 255);
+    color: rgb(66, 170, 255) !important;
+}
+.nav-active-page:hover {
+    cursor: default;
+}
+
+@media only screen and (max-width: 900px) {
+    #nav {
+        position: fixed;
+        left: calc(-1*var(--nav-width) - 5px);
+        top: 0;
+        bottom: 0;
+        padding-top: 50px;
+        box-shadow: 5px 0px 5px -2px black;
+        border-right: none;
+    }
+    #nav-openbtn {
+        display: block;
+    }
+    #nav-closebtn {
+        display: block;
+    }
+}
