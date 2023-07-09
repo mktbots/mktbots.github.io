@@ -24,7 +24,8 @@ function checkHiddenElems() {
     let elems = document.querySelectorAll('.hidden')
     let arrow = document.getElementById('arrow-down')
 
-    makeElemInvisible(arrow)
+    if (arrow)
+        makeElemInvisible(arrow)
 
     for (let elem of elems) {
         if (isVisible(elem) && elem.id != 'arrow-down') {

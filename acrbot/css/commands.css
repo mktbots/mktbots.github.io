@@ -78,6 +78,7 @@ code.tall-line { /* add to top command class if there are 2+ arg versions */
     color: rgb(240, 239, 239);
     max-width: 800px;
     margin: 0 auto;
+    min-height: calc(100vh - 314px);
 }
 #main-content p {
     line-height: 1.3;
