@@ -47,6 +47,7 @@
     .nav-category-btn-wrapper {
         display: none;
         position: absolute;
+        top: 50px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
         padding: 10px 0;
     }
