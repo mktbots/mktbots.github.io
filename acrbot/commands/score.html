@@ -68,7 +68,7 @@
 
             If you get a new high score, you can just use <code class="example">/score submit</code> again instead of first unsubmitting then resubmitting.<br><br>
 
-            <strong>Important: Troll submissions are not allowed.</strong> This includes sending random images instead of a proper screenshot, sending someone else's screenshot as your own, or sending an incorrect score. We know mistakes happen, so it's not considered trolling if you accidentally enter the wrong score. However, it <i>is</i> if you enter something like <code class="example">67234</code> when the screenshot says 52443. If you troll, you will be banned from being allowed to submit in the future.
+            <strong>Important: Troll submissions are not allowed.</strong> This includes sending random images instead of a proper screenshot, sending someone else's screenshot as your own, or sending an incorrect score. We know mistakes happen, so it's not considered trolling if you accidentally enter a digit incorrectly. However, it <i>is</i> if you enter something like <code class="example">67234</code> when the screenshot says 52443. If you troll, you will be banned from being allowed to submit.
         </p>
             <div class="img-container" style="height: min(400px, 60vw);">
                 <img class="image img-round-shadow" src="../assets/score-submit.jpg">
@@ -111,10 +111,10 @@
 
         <code class="cmd">/score top-10</code>
         <p class="indent">
-            <span><code class="arg">tour-name</code> (optional): If specified, this will get the top 10 leaderboard for a tour. Only available for tours starting with <code>Autumn Tour (2022)</code>. <br>
-            <span><code class="arg">filter</code> (optional): Show all tracks, non-battle only, or battle only.<br><br>
+            <span><code class="arg">tour-name</code> (optional): If specified, this will get the top 10 submissions during the tour. Only available for tours starting with <code>Autumn Tour (2022)</code>. <br>
+            <span><code class="arg">filter</code> (optional): Show non-battle only (default) or battle only.<br><br>
 
-            Show the top 10 scores since the bot started tracking them.
+            Show the top 10 scores. If <code>tour-name</code> is left out, the command will get the global top 10 scores.
         </p>
 
 

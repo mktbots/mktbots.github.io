@@ -56,9 +56,11 @@
 
         <code class="cmd">/acr</code>
         <p class="indent">
-            <span><code class="arg">tour-name</code>: The name of the tour. Click <a href="../resources/tips.html#tourname-parser">here</a> for an explanation on how tour names are resolved.</span><br><br>
+            <span><code class="arg">tour-name</code>: The name of the tour. Only available for tours starting with the <code>Wild West Tour</code>. Click <a href="../resources/tips.html#tourname-parser">here</a> for an explanation on how tour names are resolved.</span><br><br>
 
-            Get the top 10 / 100 / 100 cutoffs and projections for a previous tour, or get the projections for the current tour.
+            Get the top 10 / 100 / 100 cutoffs and projections for a previous tour, or get the projections for the current tour. <br><br>
+            
+            Projections are only available starting with the <code>Sky Tour</code>.
         </p>
         <div class="img-sidebyside">
             <div class="img-container" style="height: min(300px, 60vw);">
@@ -128,7 +130,7 @@
             Get a chart that'll allow you to compare coverage for coinbox or boomerang drivers.
         </p>
         <div class="img-container" style="height: min(500px, 60vw);">
-            <img class="image" src="../assets/dkr-coinbox.jpg">
+            <img class="image img-round-shadow" src="../assets/dkr-coinbox.jpg">
         </div>
         <hr class="line">
 
@@ -140,14 +142,37 @@
         <p class="indent">
             <span><code class="arg">track-name</code>: The name of the track. Click <a href="../resources/tips.html">here</a> for an explanation on how track names are resolved.</span><br>
             <span><code class="arg">show-middle-shelf-cb</code> (optional): Whether or not middle shelf coinbox drivers should be shown.</span><br>
-            <span><code class="arg">show-wr</code> (optional): Whether or not the current AC world record should be shown.</span><br><br>
+            <span><code class="arg">show-wr</code> (optional): Whether or not the current AC world record should be shown. This argument is only used if <code>track-name</code> is a single track (no w1 or "all").</span><br>
+            <span><code class="arg">force</code> (optional): If set to <code>Yes</code>, the command will send the images as attachments instead of having Discord display them using urls. Use this if an image does not load when using the command. Note: specifying <code>force</code> will take a few seconds longer to send everything.</span><br><br>
 
             Get the action count goals as well as top shelf drivers, karts, and gliders for a track.<br><br>
 
-            The optional args can be enabled by default through your <a href="settings.html">user settings</a> so that you don't have to enter them each time you use the command.
+            The optional args, except for <code>force</code>, can be enabled by default through your <a href="settings.html">user settings</a> so that you don't have to enter them each time you use the command.
         </p>        
         <div class="img-container" style="height: min(400px, 60vw);">
-            <img class="image" src="../assets/trackinfo.jpg">
+            <img class="image img-round-shadow" src="../assets/trackinfo.jpg">
+        </div>
+        <hr class="line">
+
+
+
+
+        <code class="cmd">/overlap</code>
+        <p class="indent">
+            <span><code class="arg">dkg1</code> - <code class="arg">dkg5</code>: The name of the driver, kart, or glider.</span><br><br>
+
+            Get the tracks that overlap all the DKGs specified in <code>dkg1</code> to <code>dkg5</code>.<br><br>
+
+            The best way to provide the <code>dkg</code> args is to select one of the autocomplete options. Otherwise, the name is case insensitive and parentheses are ignored. For example, you can use <code class="example">mario hakama</code> and it will resolve to <code class="example">Mario (Hakama)</code>.<br><br>
+
+            If only <code>dkg1</code> is used, this will get their full track coverage. Otherwise, the tracks overlapping the provided <code>dkg</code> args will be shown. <br><br>
+
+            Track names shown in white means all DKGs overlap them starting with level 1. If the track name is yellow, at least one DKG is locked until at least level 3, and they're shown as a mini icon.<br><br>
+
+            Since the images are generated, please allow a few seconds for the bot to send back the results.
+        </p>        
+        <div class="img-container" style="height: min(450px, 60vw);">
+            <img class="image img-round-shadow" src="../assets/overlap.png">
         </div>
         <hr class="line">
 
@@ -159,10 +184,18 @@
         <p class="indent">
             <span><code class="arg">tour-name</code>: The name of the tour. Click <a href="../resources/tips.html#tourname-parser">here</a> for an explanation on how tour names are resolved.</span><br><br>
 
-            Get the banners and a list of all the tracks for a given tour.
+            Get the banners and a list of all the tracks for a given tour.<br><br>
+
+            The yellow outline in the <code>Tracks</code> image indicates the ranked cups.
         </p>
-        <div class="img-container" style="height: min(500px, 60vw);">
-            <img class="image" src="../assets/tourinfo.jpg">
+
+        <div class="img-sidebyside">
+            <div class="img-container" style="height: min(300px, 60vw);">
+                <img class="image img-round-shadow" src="../assets/tourinfo1.jpg">
+            </div>
+            <div class="img-container" style="height: min(300px, 60vw);">
+                <img class="image img-round-shadow" src="../assets/tourinfo.jpg">
+            </div>
         </div>
         <hr class="line">
 

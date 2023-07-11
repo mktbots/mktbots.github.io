@@ -124,6 +124,6 @@
 .visible {
     visibility: visible;
     opacity: 1;
-    transition: 0.6s;
-    transform: translateY(-20px) !important;
+    transition: 0.4s;
+    transform: translateY(-10px) !important;
 }

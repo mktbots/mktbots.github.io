@@ -100,7 +100,7 @@
                 <li>Records made with pumpkins are <strong>not</strong> eligible. However, Starting with New Year's 2023 Tour, events/festival obstacles (Christmas Trees / Katdomatsus) <strong>are</strong> eligible if there is video proof.</li>
                 <li>Starting with the Night Tour, tied records are allowed.</li>
                 <li>Battle tracks are <strong>not</strong> eligible. </li>
-                <li>Player names cannot include the following characters: <code class="example">:()</code>. </li>
+                <li>Player names cannot include the following characters: <code class="example">:,</code>. </li>
             </ol>
         </p>
 
@@ -110,9 +110,9 @@
 
         <code class="cmd">/wrtour</code>
         <p class="indent">
-            <span><code class="arg">tour-name</code> The name of the tour.<br><br></span>
+            <span><code class="arg">tour-name</code> The name of the tour. Use * at the beginning or end to do a wildcard search.<br><br></span>
 
-            Get the list of world records that were set during the specified tour. Records set before or after <code>tour-name</code> are not included.
+            Get the list of world records that were set during the specified tour, as long as the WR hasn't been overtaken by a future tour. Records set before or after <code>tour-name</code> are not included.
         </p>
 
 
@@ -133,6 +133,13 @@
             <span><code class="arg">player-name</code>: The name of the player. Use * at the beginning or end to do a wildcard search. <br><br>
 
             List the action count world records for a player.
+        </p>
+
+        <code class="cmd">/wrleaderboard</code>
+        <p class="indent">
+            <span><code class="arg">sort</code>: By default, players are sorted by descending world record, but it can be set to sort alphabetically by player name instead. <br><br>
+
+            List the action count world records leaderboard. Each line contains the player's name and the number of world records.
         </p>
  
     </div>

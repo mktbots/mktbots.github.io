@@ -147,6 +147,11 @@
     visibility: hidden;
     opacity: 0;
 }
+.hidden-immediate {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0s;
+}
 .visible {
     visibility: visible;
     opacity: 1;
