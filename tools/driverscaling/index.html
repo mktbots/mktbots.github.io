@@ -1,0 +1,52 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>ACR Bot Driver Scaling Tool</h1>
+
+    <div class="inputContainer">
+        <label for="dType">Driver Type</label>
+        <select name="dType" id="dType" onchange="updateCanvas()">
+            <option value="hd">High-end</option>
+            <option value="sd">Super</option>
+            <option value="nd">Normal</option>
+        </select>
+    </div>
+
+    <!-- <label for="import">Import Data:</label> -->
+    <!-- <textarea id="import" name="import" onchange="loadData()"> </textarea> <br><Br> -->
+
+    <div class="inputContainer">
+        <label for="driverUrl">Driver Image Url</label>
+        <input type="text" id="driverUrl" name="driverUrl" size="75" placeholder="https://mario.wiki.gallery/images" onchange="updateCanvas(true)">
+        <div id="errorMessage" style="color: red;" hidden="true"></div>
+    </div>
+
+    <div class="inputContainer">
+        <div>
+            <label for="left">Left</label>
+            <input type="number" id="left" name="left" value="0" min="-5" max="5" step="0.1" onchange="updateCanvas()">
+            <label for="right">Right</label>
+            <input type="number" id="right" name="right" value="10" min="5" max="15" step="0.1" onchange="updateCanvas()">
+            <label for="top">Top</label>
+            <input type="number" id="top" name="top" value="0" min="-5" max="5" step="0.1" onchange="updateCanvas()"> <br><br>
+        </div>
+    </div>
+
+    <div class="canvasWrapper">
+        <canvas class="outputCanvas" id="outputCanvas" width="216" height="280"></canvas>
+        <canvas id="tmpCanvas" hidden="true"></canvas> <br><br>
+    </div>
+
+    <div class="inputContainer">
+        <label for="scalingTable">Copy the following table, then use cmd+shift+v to paste into the driver scaling tab:</label>
+        <table id="scalingTable"></table>
+    </div>
+
+    <br><br>
+    <!-- <button id="nextButton" onclick="next()">Next</button> -->
+
+    <script src="index.js"></script>
+</body>
+</html>

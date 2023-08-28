@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(224, 234, 255);
+}
+
+h1 {
+    text-align: center;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input, select {
+    padding: 3px 5px;
+}
+select {
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+
+input#driverUrl {
+    width: min(75vw, 700px);
+}
+
+.canvasWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+table {
+    margin: 10px 0;
+    border-collapse: collapse
+}
+td {
+    width: 50px;
+    height: 22px;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    text-align: center;
+}
