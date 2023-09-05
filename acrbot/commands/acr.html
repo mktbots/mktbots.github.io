@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MDB3TY5LDH"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-MDB3TY5LDH');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/pfp.png">
@@ -150,7 +141,7 @@
         <code class="cmd">/trackinfo</code>
         <p class="indent">
             <span><code class="arg">track-name</code>: The name of the track. Click <a href="../resources/tips.html">here</a> for an explanation on how track names are resolved.</span><br>
-            <span><code class="arg">show-middle-shelf-cb</code> (optional): Whether or not middle shelf coinbox drivers should be shown.</span><br>
+            <span><code class="arg">show-middle-shelf-drivers</code> (optional): Whether or not middle shelf coinbox and mii drivers should be shown.</span><br>
             <span><code class="arg">show-wr</code> (optional): Whether or not the current AC world record should be shown. This argument is only used if <code>track-name</code> is a single track (no w1 or "all").</span><br>
             <span><code class="arg">force</code> (optional): If set to <code>Yes</code>, the command will send the images as attachments instead of having Discord display them using urls. Use this if an image does not load when using the command. Note: specifying <code>force</code> will take a few seconds longer to send everything.</span><br><br>
 
@@ -166,7 +157,7 @@
 
 
 
-        <code class="cmd">/overlap</code>
+        <code class="cmd">/overlap dkgs</code>
         <p class="indent">
             <span><code class="arg">dkg1</code> - <code class="arg">dkg5</code>: The name of the driver, kart, or glider.</span><br><br>
 
@@ -182,6 +173,23 @@
         </p>        
         <div class="img-container" style="height: min(450px, 60vw);">
             <img class="image img-round-shadow" src="../assets/overlap.png">
+        </div>
+        <hr class="line">
+
+
+
+
+
+        <code class="cmd">/overlap tracks</code>
+        <p class="indent">
+            <span><code class="arg">track1</code> - <code class="arg">track5</code>: The name of a track.</span><br><br>
+
+            Get the DKGs that overlap all the tracks specified in <code>track1</code> to <code>track5</code>. You must provide two or more unique tracks. To find the DKGs for a single track, use <code class="example">/trackinfo</code> instead.<br><br>
+
+            Since the images are generated, please allow a few seconds for the bot to send back the results.
+        </p>        
+        <div class="img-container" style="height: min(450px, 60vw);">
+            <img class="image img-round-shadow" src="../assets/overlaptracks.png">
         </div>
         <hr class="line">
 
@@ -219,9 +227,10 @@
 
         <code class="cmd">/tourlist</code>
         <p class="indent">
+            <span><code class="arg">show-dates</code>: If <code>Yes</code> is selected, it will display the start and end dates next to each tour.</span><br><br>
+
             Get a list of all the tour names in chronological order.
         </p>
-
 
 
 
