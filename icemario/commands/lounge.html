@@ -162,25 +162,19 @@
 
 
 
-		<code class="cmd">!top# rank1</code> <i>or</i><br>
-		<code class="cmd">!top# rank2 rank1</code>
+		<code class="cmd">!top# rank</code>
 		<p class="indent">	            
             <span><code class="arg">#</code> (optional): The season number. If left out, this will get the current season.</span><br>
-            <span><code class="arg">rank1</code> (optional): Returns everyone who's rank is above <code>rank1</code>. </span><br>
-            <span><code class="arg">rank2</code> (optional): Returns everyone who's rank is below <code>rank2</code>. </span><br><br>
+            <span><code class="arg">rank</code> (optional): Returns the leaderboard page containing <code>rank</code>. </span><br><br>
 
-            Get the players in the specified rank range. <br><br>
-
-            Note: the command will only get at most 10 people, so if you provide both <code>rank2</code> and <code>rank1</code>, then <code>rank1</code> will automatically be converted to <code class="example">rank2 + 10</code> if it is too large. <br><br>
+            Get the lounge leaderboard. Buttons are included to switch between pages.<br><br>
 
             Examples:
             <ul class="indent">
                 <li><code class="example" style="line-height: 1.7;">!top</code>: Get the top 10 players for the current season.</li>
                 <li><code class="example" style="line-height: 1.7;">!top8</code>: Get the top 10 players for season 8.</li>
-                <li><code class="example" style="line-height: 1.7;">!top 20</code>: Get the players for the current season with rank between 10 and 20.</li>
-                <li><code class="example" style="line-height: 1.7;">!top 20 30</code>: Get the players for the current season with rank between 20 and 30.</li>
-                <li><code class="example" style="line-height: 1.7;">!top 20 100</code>: Get the players for the current season with rank between 20 and 30.</li>
-                <li><code class="example" style="line-height: 1.7;">!top11 30</code>: Get the players for season 11 with rank between 20 and 30.</li>
+                <li><code class="example" style="line-height: 1.7;">!top 20</code>: Jump to the page containing the player with rank 20.</li>
+                <li><code class="example" style="line-height: 1.7;">!top11 30</code>: Jump to the page containing the player with rank 20 for season 11.</li>
             </ul>
         </p>
         <div class="line"></div>
