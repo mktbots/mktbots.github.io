@@ -110,7 +110,8 @@
             <span><code class="arg">teamName</code>: The name of a team. Should be 1 word as well as at most 7 characters.</span><br>
             <span><code class="arg">imageLink</code> (optional): An image link.</span><br><br>
             Adds or updates a logo. You need to either provide the logo link in <code>imageLink</code> if you have the url, or send the image when using the command. If a name already exists, a message will appear prompting you to either update the log or cancel. <br><br>
-            Due to the high number of logos, old logos in the <code>unsorted</code> category may be automatically removed after 30 days. If you only plan on using a logo once, please remove it after creating your table.
+            Due to the high number of logos, old logos in the <code>unsorted</code> category may be automatically removed after 30 days. <br><br>
+            If you only plan on using a logo once, you can now pass the logo url (Discord media link) in place of a team name when using !tablel. For example, instead of adding a logo called <code class="example">xyz</code> and using <code class="example">xyz #ff0000</code> when making a table, you can instead use <code class="example">https://media.discordapp.net/xyz.png #ff0000</code>.
         </p>
 
 
@@ -127,8 +128,19 @@
 		<code class="cmd">!logocolor teamName color</code>
 		<p class="indent">
             <span><code class="arg">teamName</code>: The name of a team.</span><br>
-            <span><code class="arg">color</code> (optional): The color to update the logo with in hex format. Ex: <code class="example">#FF0000</code>.</span><br><br>
-            If <code>color</code> is provided, this will update the color for the team. Otherwise, the current color of the team is returned. 
+            <span><code class="arg">color</code> (optional): The color to update the logo with in hex format, like <code class="example">#FF0000</code>. This can also be a gradient, like <code class="example">#FF0000 #FFFF00</code>, and you can provide a gradient direction, either <code class="example">/</code>, <code class="example">\</code>, <code class="example">-</code>, or <code class="example">|</code> after the two gradient colors. The default direction if not specified is <code class="example">/</code></span><br><br>
+            If <code>color</code> is provided, this will update the color for the team. Otherwise, the current color of the team is returned. <br><br>
+
+            Examples:
+            <ul>
+                <li><code class="example">!logocolor xyz</code>: Get the current color for team xyz.</li>
+                <li><code class="example">!logocolor xyz #FF0000</code>: Set the color for xyz to #FF0000 (red).</li>
+                <li><code class="example">!logocolor xyz #FF0000 #FFFF00</code>: Set a gradient color for xyz going from #FF0000 (red) on the bottom left corner to #FFFF00 (yellow) on the top right corner.</li>
+                <li><code class="example">!logocolor xyz #FF0000 #FFFF00 /</code>: Same as above.</li>
+                <li><code class="example">!logocolor xyz #FF0000 #FFFF00 \</code>: Set a gradient color for xyz going from #FF0000 (red) on the top left corner to #FFFF00 (yellow) on the bottom right corner.</li>
+                <li><code class="example">!logocolor xyz #FF0000 #FFFF00 -</code>: Set a gradient color for xyz going from #FF0000 (red) on the left to #FFFF00 (yellow) on the  right.</li>
+                <li><code class="example">!logocolor xyz #FF0000 #FFFF00 |</code>: Set a gradient color for xyz going from #FF0000 (red) on the top to #FFFF00 (yellow) on the bottom.</li>
+            </ul>
         </p>
 
 

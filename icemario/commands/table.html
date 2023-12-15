@@ -20,6 +20,42 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/commands.css">
+	<style>
+		.grid-container {
+			display: grid;
+			grid-template-columns: auto auto;
+			justify-content: center;
+			justify-items: center;
+			gap: 20px;
+		}
+		.grid-item {
+			height: 500px
+		}
+
+		.table-grid-container {
+			display: grid;
+			grid-template-columns: auto auto;
+			justify-content: center;
+			justify-items: center;
+			gap: 20px;
+		}
+		.table-grid-item {
+			height: min(300px, 80vw);
+		}
+
+		@media only screen and (max-width: 850px) {
+			.grid-container {
+				grid-template-columns: auto;
+			}
+		}
+
+		@media only screen and (max-width: 1100px) {
+			.table-grid-container {
+				grid-template-columns: auto;
+			}
+		}
+
+	</style>
 </head>
 <body>
     <div id="header">
@@ -69,6 +105,9 @@
 			A feature-packed clan war table maker! If needed, table commands can be disabled through your server's <a href="config.html">config settings</a>.
 		</p>
 
+		<hr class="line">
+		<h2 class="yellow">Overview</h2>
+
 		<code class="cmd">
 			!table [style options]<br>
 			[table options]<br>
@@ -76,7 +115,7 @@
 		</code>
 		<div class="alias-wrapper"><span class="alias">Alternate: <code>!tablel</code></span></div>
 		<p class="indent">
-			To add team logos, use <code class="example">!tablel</code> instead of <code class="example">!table</code>, and if a team has a logo but the color is not set, the text will be white by default. <br><br>
+			To add team logos, use <code class="example">!tablel</code> instead of <code class="example">!table</code>, and if a team has a logo but the color is not set, the text will be white by default. Alternatively, you can use an image url in place of a team's name to use a logo without needing to first add it with !logoadd. <br><br>
 
 			Click <a href="logos.html">here</a> to learn more about adding custom logos, and click <a href="flags.html">here</a> to learn more about custom flags.
 		</p>
@@ -84,6 +123,9 @@
 		<div class="img-container" style="height: 600px;">
             <img class="image img-round-shadow" src="../assets/table-overview.png">
         </div>
+
+		<hr class="line">
+		<h2 class="yellow">Specifics</h2>
 
 		<p class="indent">
 			<code class="arg">style options</code>: Optional style modifiers. All style options should be written on the top line, separated by a space.
@@ -101,6 +143,7 @@
 				<li><code>summit</code>: MKCentral Summit table (MK8DX)</li>
 				<li><code>ldc</code>: Low-Div Cup table (MK8DX)</li>
 				<li><code>mdc</code>: Mid-Div Cup table (MK8DX)</li>
+				<li><code>100pc</code>: 100 Point Cup (MK8DX)</li>
 			</ul>
 
 			<h3 class="yellow" style="margin-left: 60px;">Additional style options</h3>
@@ -137,10 +180,19 @@
 		<div class="indent">
 			<ul>
 				<li>The table data should start with the team name.</li>
-				<li style="margin-left: 30px;">You can add the full team name below the abbreviation on the table by including a dash like so: <br><code class="example">ABB - Full Team Name</code>. This is not available if using <code>!tablel</code>.</li>
-				<li style="margin-left: 30px;">You can set the team's text color by including a hex color code to the right, like <code class="example">#FF0000</code>. This will override the colors if !tablel is used, but this will have no effect if a style option is used (such as cwl, cyclone, or mku).</li>
-				<li style="margin-left: 30px;">Include a dash before the team name, like in <code class="example">-vx</code>, to display the team's tag, like <code class="example">vx</code>, instead of their logo when using !tablel.</li>
-				<li style="margin-left: 30px;">Use either a dot (<code class="example">.</code>) or a single dash (<code class="example">-</code>) for the team name to leave out their tag or logo.</li>
+				<li style="margin-left: 30px;">Full team name: You can add the full team name below the abbreviation on the table by including a dash like so: <code class="example">ABB - Full Team Name</code>. This is not available if using <code>!tablel</code>.</li>
+				<li style="margin-left: 30px;">Team color: You can set the team's text color by including a hex color code to the right, like <code class="example">#FF0000</code>. This will override the colors if !tablel is used, but this will have no effect if a style option is used (such as cwl, cyclone, or mku).</li>
+				<li style="margin-left: 30px;">Team color gradient: Similar to above, you can set a two-color gradient for the team. To do so, use the following syntax: <code class="example">color1 color2 optionalDirection</code>. OptionalDirection must be one of the following four characters:
+				<ul>
+					<li><code class="example">/</code>: From bottom left to top right</li>
+					<li><code class="example">\</code>: From top left to bottom right</li>
+					<li><code class="example">-</code>: From left to right</li>
+					<li><code class="example">|</code>: From top to bottom</li>
+				</ul>
+				The default direction is <code class="example">/</code>. For example, the following will set a red to orange gradient going from left to right: <code class="example">#ff0000 #ff8800 -</code>.</li>
+
+				<li style="margin-left: 30px;">Skip logo when using !tablel: Include a dash before the team name, like in <code class="example">-vx</code>, to display the team's tag, like <code class="example">vx</code>, instead of their logo when using !tablel.</li>
+				<li style="margin-left: 30px;">Ignore team name and logo: Use either a dot (<code class="example">.</code>) or a single dash (<code class="example">-</code>) for the team name to leave out their tag or logo.</li>
 				
 				<li>Add player names below the team name.</li>
 				<li style="margin-left: 30px;">Format: <code class="example">PlayerName [Flag] Score</code>. Adding a flag is optional. A list of standard country flags can be found <a href="https://gb.hlorenzi.com/help/flags" target="_blank">here</a>, and you can learn more about custom flags <a href="flags.html">here</a>. Regarding player scores, you can use addition to calculate them, like <code class="example">45+10+15</code>.</li>
@@ -160,7 +212,18 @@
 		</p>
 
 		<hr class="line">
+		<h2 class="yellow">Examples</h2>
+		<div class="grid-container">
+			<img class="grid-item" src="../assets/tablebasic.png">
+			<img class="grid-item" src="../assets/tablecwl.jpg">
+			<img class="grid-item" src="../assets/tableskiplogo.jpg">
+			<img class="grid-item" src="../assets/tablemisc.png">
+			<img class="grid-item" src="../assets/tableurl.png">
+			<img class="grid-item" src="../assets/tablegradient.jpg">
+		</div>
 
+
+		<hr class="line">
 		<h2 class="yellow">Tournament Themes</h2>
 
 		<div class="img-container" style="height: 300px;">
@@ -193,7 +256,9 @@
 		<div class="img-container" style="height: 300px;">
             <img class="image img-round-shadow" src="../assets/mdc.png">
         </div>
-
+		<div class="img-container" style="height: 300px;">
+            <img class="image img-round-shadow" src="../assets/100pc.png">
+        </div>
     </div> 
 	
 	<div class="footer">
