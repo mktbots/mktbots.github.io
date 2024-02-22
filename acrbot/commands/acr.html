@@ -154,7 +154,11 @@
             <span><code class="arg">tour-name</code> (optional): The name of a tour to use. Note: this option DOES NOT use the coverage data <i>during</i> the specified tour. Instead, the most recent coverage data is used. This argument is only used if <code>track-name</code> is a cup, either <code class="example">Week 1</code>, <code class="example">Week 2</code>, or <code class="example">Cup 5</code> for example.</span><br>
             <span><code class="arg">force</code> (optional): If set to <code>Yes</code>, the command will send the images as attachments instead of having Discord display them using urls. Use this if an image does not load when using the command. Note: specifying <code>force</code> will take a few seconds longer to send everything.</span><br><br>
 
-            Get the tour appearances, action count goals, and top shelf drivers, karts, and gliders for a track. For the Tour Appearances section, tours above the gray line are ones that appeared before the 2022 Battle Tour, and tours below the line are from the 2022 Battle Tour onwards.<br><br>
+            Get the tour appearances, action count goals, and top shelf drivers, karts, and gliders for a track. <br><br>
+            
+            For the Tour Appearances section, tours above the gray line are ones that appeared before the 2022 Battle Tour, and tours below the line are from the 2022 Battle Tour onwards. Yellow text indicates the track is part of ranked for the corresponding tour.<br><br>
+
+
 
             The optional arg <code>show-wr</code> can be enabled by default through your <a href="settings.html">user settings</a> so that you don't have to enter it each time you use the command.
         </p>        
@@ -169,13 +173,13 @@
         <code class="cmd">/overlap dkgs</code>
         <p class="indent">
             <span><code class="arg">dkg1</code> - <code class="arg">dkg5</code>: The name of the driver, kart, or glider.</span><br>
-            <span><code class="arg">filter</code> (optional): Can be either <code class="example">Show current tracks only</code>, <code class="example">Show ranked tracks only</code>, or <code class="example">Show all tracks (default)</code>.</span><br><br>
+            <span><code class="arg">filter</code> (optional): Different ways to filter the results.</span><br><br>
 
             Get the tracks that overlap all the DKGs specified in <code>dkg1</code> to <code>dkg5</code>.<br><br>
 
             The best way to provide the <code>dkg</code> args is to select one of the autocomplete options. Otherwise, the name is case insensitive and parentheses are ignored. For example, you can use <code class="example">mario hakama</code> and it will resolve to <code class="example">Mario (Hakama)</code>.<br><br>
 
-            If only <code>dkg1</code> is used, this will get their full track coverage. Otherwise, the tracks overlapping the provided <code>dkg</code> args will be shown. <br><br>
+            If only <code>dkg1</code> is used, this will get their full track coverage as well as the top 3 or 4 overlapping DKGs. Otherwise, the tracks overlapping the provided <code>dkg</code> args will be shown. <br><br>
 
             Track names shown in white means all DKGs overlap them starting with level 1. If the track name is yellow, at least one DKG is locked until at least level 3, and they're shown as a mini icon.<br><br>
 
