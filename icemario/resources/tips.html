@@ -80,7 +80,7 @@
                 <ul>
                     <li> <span><code class="arg">day</code>: Either spelled out (<code class="example">July 1</code>) or <code>mm/dd</code> (<code class="example">7/1</code>). Reversing the month and day is unsupported, and the date may not parse.<br></span> </li>
                     <li> <span><code class="arg">time</code>: <code class="example">3 pm</code>, <code class="example">10:30 am</code>, or <code class="example">21</code>/<code class="example">21:00</code> without am/pm if using 24 hour format.<br></span> </li>
-                    <li> <span><code class="arg">timezone</code>: Must be either <code>pdt</code>, <code>cdt</code>, <code>mx</code>, <code>edt</code>, <code>utc</code>, <code>cest</code>, or <code>jst</code>. Daylight savings time, like <code>pdt</code> and <code>pst</code> are converted automatically.<br></span> </li>
+                    <li> <span><code class="arg">timezone</code>: Must be either <code>pdt</code>, <code>pt</code>, <code>cdt</code>, <code>mx</code>, <code>edt</code>, <code>et</code>, <code>utc</code>, <code>cest</code>, or <code>jst</code>. Daylight savings time, like <code>pdt</code> and <code>pst</code> are converted automatically.<br></span> </li>
                 </ul>
 
                 If you omit the day, like in <code class="example">11am edt</code>, and the current time is past that, like if it is 3:00 PM EDT, then the parser will parse it as 11:00 AM the next day. <br><br>

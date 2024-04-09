@@ -80,10 +80,25 @@
 		<code class="cmd">!create &ltevent title&gt &ltdate and time&gt [optional restriction]</code>
 		<p class="indent">
             <span><code class="arg">event title</code>: The name of the event<br></span>
-            <span><code class="arg">date and time</code>: When the event takes place. Click <a href="../resources/tips.html">here</a> for an explanation on how dates are parsed.<br></span>
+            <span><code class="arg">date and time</code>: When the event takes place. Click <a href="../resources/tips.html">here</a> for an explanation on how dates are parsed. See below on how you can create multiple schedules on the same day with one command.<br></span>
             <span><code class="arg">optional restriction</code>: Only allow people with a certain role to react. Note: you must first add a restriction with <code class="example">!scheduleroleadd</code> (shown below) in order for it to work.</span><br><br>
 
 			Create a new schedule. <br><br>
+
+            To create multiple schedules with a single command, separate the different times with a comma. Here are
+            some examples on how to create schedules at 11am, 12pm, 1pm, and 2pm:<br>
+        </p>
+            <ul class="indent">
+                <li><code class="example">!create Scrim today at 11am, 12pm, 1pm, 2pm pdt</code></li>
+                <li><code class="example">!create Scrim today at 11:00 am, 12:00 pm, 1:00pm, 2:00pm pdt</code></li>
+                <li><code class="example">!create Scrim 4/8 11:00, 12:00, 13:00, 14:00 pdt</code></li>
+                <li><code class="example">!create Scrim 4/8 11, 12, 13, 14 pdt</code></li>
+            </ul>
+
+        <p class="indent">
+            In addition, if you regularly need to create multiple schedules at the same times for a day, you can create 
+            a <a href="custom-commands.html">custom command</a>. For example, if you create a custom command with <code class="example">!cca scrims, !create scrim today 2pm, 3pm, 4pm pdt</code>
+            then you can use the command <code class="example">!scrims</code> to have Ice Mario send the schedule create message to create the specified schedules. <br><br>
 
             If using <code>optional restriction</code>, add the word "only" after the restriction name. 
             For example, if you have a restriction with name <code>sapphire</code>, you'd type 
