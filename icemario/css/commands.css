@@ -75,7 +75,7 @@ code.tall-line { /* add to top command class if there are 2+ arg versions */
     padding: 50px;
     background-color: #2e3136;
     color: rgb(240, 239, 239);
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     min-height: calc(100vh - 314px);
     line-height: 1.5em;

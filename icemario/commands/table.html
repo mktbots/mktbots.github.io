@@ -23,38 +23,38 @@
 	<style>
 		.grid-container {
 			display: grid;
-			grid-template-columns: auto auto;
+			grid-template-columns: auto auto auto;
 			justify-content: center;
 			justify-items: center;
 			gap: 20px;
 		}
 		.grid-item {
-			height: 500px
-		}
-
-		.table-grid-container {
-			display: grid;
-			grid-template-columns: auto auto;
-			justify-content: center;
-			justify-items: center;
-			gap: 20px;
+			height: 500px;
 		}
 		.table-grid-item {
-			height: min(300px, 80vw);
+			width: min(350px, 95vw);
 		}
 
-		@media only screen and (max-width: 850px) {
+		.codeblock {
+			width: 210px;
+			background-color: #191b1d;
+			font-size: 13px;
+			padding: 10px;
+			color: white;
+			border-radius: 3px;
+			margin: auto;
+		}
+
+		@media only screen and (max-width: 1150px) {
+			.grid-container {
+				grid-template-columns: auto auto;
+			}
+		}
+		@media only screen and (max-width: 770px) {
 			.grid-container {
 				grid-template-columns: auto;
 			}
 		}
-
-		@media only screen and (max-width: 1100px) {
-			.table-grid-container {
-				grid-template-columns: auto;
-			}
-		}
-
 	</style>
 </head>
 <body>
@@ -143,7 +143,8 @@
 				<li><code>summit</code>: MKCentral Summit table (MK8DX)</li>
 				<li><code>ldc</code>: Low-Div Cup table (MK8DX)</li>
 				<li><code>mdc</code>: Mid-Div Cup table (MK8DX)</li>
-				<li><code>100pc</code>: 100 Point Cup (MK8DX)</li>
+				<li><code>100pc</code>: 100 Point Cup table (MK8DX)</li>
+				<li><code>paradigm</code>: Paradigm table (MK8DX)</li>
 			</ul>
 
 			<h3 class="yellow" style="margin-left: 60px;">Additional style options</h3>
@@ -154,6 +155,11 @@
 				<li><code>bold</code>: Make the player names, and player scores bold.</li>
 				<li><code>nobold</code>: This option can be used to force the table maker to not make any of the text bold.</li>
 				<li><code>emote</code> or <code>emoji</code>: Allows you to add emojis (including Discord emojis) to the table data. Without this, emojis may not be parsed correctly.</li>
+				<li><code>nodate</code>: Hide the date. However, this will not be available if you are creating a tournament table.</li>
+				<li><code>races</code>: force display the race count (ex. 12 Races) if the score is divisible by 39 or 82. Use this option if you are creating a tournament table, like mku, that does not show the race count by default.</li>
+				<li><code>noraces</code>: Hide the race count.</li>
+				<li><code>noline</code>: Hide the line separating the different teams. Useful if you are using a background image.</li>
+				<li><code>bgfit</code>: Forces the full background image to fit within the table. By default, without bgfit, the background will be scaled to fill the entire table. See example 7 and example 8 below to see what the background star looks like with and without <code>bgfit</code>.</li>
 			</ul>
 		</p>
 
@@ -167,9 +173,16 @@
 				<li><code>#title &lttitle&gt</code>: Set a custom title to the left of the date. You can add a dot <code class="example">•</code> to separate words with a dot.</li>
 				<li><code>#icon &lturl&gt</code>: Set a custom icon image on the top left of the table</li>
 				<li><code>#centericon &lturl&gt</code>: Set a custom icon image in the center of the table</li>
-				<li><code>#dotalpha &ltval&gt</code>: Set the dot transparency. The value should between 0 and 1; a value of 0 will not display the dots.</li>
-				<li><code>#dotcolor &lt#000000&gt</code>: Set the dot color in hex format</li>
+				<li><code>#dotalpha &ltval&gt</code> or <code>#dotopacity &ltval&gt</code>: Set the dot transparency. The value should between 0 and 1; a value of 0 will not display the dots. Default: 0.55</li>
+				<li><code>#dotcolor &ltcolor&gt</code>: Set the dot color. This can be a single color (<code class="example">#FF0000</code>) or a gradient (<code class="example">#FF0000 #0000FF /</code>).</li>
+				<li><code>#background &lturl&gt</code> or <code>#bg &lturl&gt</code>: Set the background image. This allows you to use an image url instead of sending an image attachment when using the !table command. Note: the default table option values are dotalpha=0, and bgbright=0.7</li>
 				<li><code>#bgbright &ltval&gt</code>: Set the background brightness if a background image is being used. Val should be between 0 and 1 where 0 is full dark and 1 is full bright.</li>
+				<li><code>#bgalpha &ltval&gt</code> or <code>#bgopacity &ltval&gt</code>: Set the background opacity if a background image is being used. Val should be between 0 and 1 where 0 is fully transparent and 1 is fully opaque.</li>
+				<li><code>#bgcolor &ltcolor&gt</code>: Set the background color. This will show behind an optional background image in case the image contains transparent pixels. This can be a single color (<code class="example">#FF0000</code>) or a gradient (<code class="example">#FF0000 #0000FF /</code>).</li>
+				<li><code>#topcolor &ltcolor&gt</code>: Set the top team's color, as well as every odd team if there are 3+ teams. This is different than setting an individual team's color since the top team will always be the #topcolor color. This can be a single color (<code class="example">#FF0000</code>) or a gradient (<code class="example">#FF0000 #0000FF /</code>).</li>
+				<li><code>#bottomcolor &ltcolor&gt</code>: Set the bottom team's color, as well as every even team if there are 3+ teams. This is different than setting an individual team's color since the bottom team will always be the #bottomcolor color. This can be a single color (<code class="example">#FF0000</code>) or a gradient (<code class="example">#FF0000 #0000FF /</code>).</li>
+				<li><code>#textgradient &ltgradient&gt</code>: Apply a single text gradient to the whole table like the 100pc and paradigm themes. If provided, this will override any clan specific colors. Example gradient: <code class="example">#FF0000 #0000FF /</code>.</li>
+				<li><code>#font &ltfontName&gt</code>: Set the text font. A list of available fonts is shown in the section below titled "Fonts".</li>
 			</ul>
 		</div>
 
@@ -192,6 +205,7 @@
 				The default direction is <code class="example">/</code>. For example, the following will set a red to orange gradient going from left to right: <code class="example">#ff0000 #ff8800 -</code>.</li>
 
 				<li style="margin-left: 30px;">Skip logo when using !tablel: Include a dash before the team name, like in <code class="example">-vx</code>, to display the team's tag, like <code class="example">vx</code>, instead of their logo when using !tablel.</li>
+				<li style="margin-left: 30px;">Add logo from url: Instead of having to use <code class="example">!addlogo</code>, you can just use the image url in place of the team tag. This will allow you to add a temporary private logo since it won't show up when someone uses <code class="example">!listlogos</code>. You can also specify the team color by adding the color to the right of the url. Note: this will only work if you are using <code class="example">!tablel</code> and not <code class="example">!table</code>.</li>
 				<li style="margin-left: 30px;">Ignore team name and logo: Use either a dot (<code class="example">.</code>) or a single dash (<code class="example">-</code>) for the team name to leave out their tag or logo.</li>
 				
 				<li>Add player names below the team name.</li>
@@ -211,54 +225,125 @@
 			Ice Mario will do its best to make sure the points add up correctly. If the total is between 400 and 500, it will make sure the points add to 468, and if the total is between 900 and 1050, it will make sure the points add to 984. Outside this range, Ice Mario will check to see if the total is divisible by either 39 or 82. If everything is correct, the table message will be green. Otherwise, there will be one or more warning messages.
 		</p>
 
+
+		<hr class="line">
+		<h2 class="yellow">Save Custom Table Settings</h2>
+		<p>
+			Use the following commands to add, remove, get, or list table settings. These settings are saved to your server, so they cannot be used in other servers.
+		</p>
+
+		<code class="cmd">!tablesettingsadd name messageLink</code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!tsa</code></span></div>
+		<p class="indent">
+            <span><code class="arg">name</code>: The name for the settings. Must be one word with no spaces.<br></span>
+			<span><code class="arg">messageLink</code>: The Discord link to the !table command.<br></span><br>
+
+			Add a new custom table setting. This will save the settings from the table command referenced in the <code>messageLink</code> argument.<br><br>
+
+			Here is an example of saving a table style called <code>mystyle</code>: <br>
+		</p>
+
+		<div style="width: min(1100px, 80vw); margin: auto;">
+			<img class="img-round-shadow" src="../assets/tsflow.png" style="width: min(1100px, 80vw);">
+		</div> 
+
+		<p class="indent">
+			A few notes: 
+			<ul class="indent">
+				<li>This will save the background image if one was provided, either with #bg or as an attachment!</li>
+				<li>All icons will also be saved!</li>
+				<li>If #date was used in the original table command, it will NOT be saved.</li>
+				<li>Specific team colors (where you add a color to the right of a team) will NOT be saved.</li>
+				<li>You can have up to 10 saved table settings per server.</li>
+				<li>You can override any saved settings when using <code class="example">!table</code>.</li>
+			</ul>
+		</p>
+
+		<code class="cmd">!tablesettingsremove name </code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!tsr</code></span></div>
+		<p class="indent">
+            <span><code class="arg">name</code>: The name for the settings to remove. <br><br></span>
+
+			Remove a custom table setting.
+		</p>
+
+		<code class="cmd">!tablesettingsget name </code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!tsg</code></span></div>
+		<p class="indent">
+            <span><code class="arg">name</code>: The name for the settings to get. <br><br></span>
+
+			Show what the table settings are for <code>name</code>.
+		</p>
+
+		<code class="cmd">!tablesettingslist </code>
+        <div class="alias-wrapper"><span class="alias">Alias: <code>!tsl</code></span></div>
+		<p class="indent">
+			List the names of the saved table settings.
+		</p>
+
+		<!-- --------------------------------------------------------------------------------- -->
+
 		<hr class="line">
 		<h2 class="yellow">Examples</h2>
 		<div class="grid-container">
-			<img class="grid-item" src="../assets/tablebasic.png">
-			<img class="grid-item" src="../assets/tablecwl.jpg">
-			<img class="grid-item" src="../assets/tableskiplogo.jpg">
-			<img class="grid-item" src="../assets/tablemisc.png">
-			<img class="grid-item" src="../assets/tableurl.png">
-			<img class="grid-item" src="../assets/tablegradient.jpg">
+			<label>1. Regular table<img class="grid-item" src="../assets/tablebasic.png"></label>
+			<label>2. CWL theme, custom title, custom date<img class="grid-item" src="../assets/tablecwl.jpg"></label>
+			<label>3. Use text instead of team logo for anony <img class="grid-item" src="../assets/tableskiplogo.jpg"></label>
+			<label>4. bold text, custom header icon<img class="grid-item" src="../assets/tablemisc.png"></label>
+			<label>5. Use image urls for the logos<img class="grid-item" src="../assets/tableurl.png"></label>
+			<label>6. Gradient examples<img class="grid-item" src="../assets/tablegradient.jpg"></label>
+			<label>7. Set background color, add background using url, set background opacity to 0.5, and hide the line separating both teams <img class="grid-item" src="../assets/table1.png"></label>
+			<label>8. Like example 7, but fit background image to table, make the background full brightness, set #topcolor, and set #bottomcolor<img class="grid-item" src="../assets/table2.png"></label>
+			<label>9. Hide the date, hide the race count, use #dotcolor, set the font to mkt, and example title<img class="grid-item" src="../assets/table3.png"></label>
 		</div>
+		<br>
 
+		<!-- --------------------------------------------------------------------------------- -->
+
+		<hr class="line">
+		<h2 class="yellow">Fonts</h2>
+		<p>
+			Here is a list of the available fonts. Additional fonts can be requested by DM or by joining our support server!<br><br>
+			To use one of these fonts, use <code class="example">#font fontName</code>.For example, <code class="example">#font times new roman</code> and <code class="example">#font tnr</code> will both yield the same results.
+		</p>
+		<ul>
+			<li>Roboto (default)</li>
+			<li>Arial</li>
+			<li>Bahnschrift</li>
+			<li>Courier New (or cn)</li>
+			<li>Georgia</li>
+			<li>MKT</li>
+			<li>Times New Roman (or tnr)</li>
+		</ul>
+		<div class="grid-container">
+			<img class="table-grid-item img-round-shadow" src="../assets/fontarial.png">
+			<img class="table-grid-item img-round-shadow" src="../assets/fontbahnschrift.png">
+			<img class="table-grid-item img-round-shadow" src="../assets/fontcouriernew.png">
+			<img class="table-grid-item img-round-shadow" src="../assets/fontgeorgia.png">
+			<img class="table-grid-item img-round-shadow" src="../assets/fontmkt.png">
+			<img class="table-grid-item img-round-shadow" src="../assets/fonttimesnewroman.png">
+		</div>
+		<br>
+
+		<!-- --------------------------------------------------------------------------------- -->
 
 		<hr class="line">
 		<h2 class="yellow">Tournament Themes</h2>
 
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/cwl.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/cyclone.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/wc.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/survival.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/mku.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/pl.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/mkcf.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/summit.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/ldc.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/mdc.png">
-        </div>
-		<div class="img-container" style="height: 300px;">
-            <img class="image img-round-shadow" src="../assets/100pc.png">
-        </div>
+		<div class="grid-container">
+			<img class="img-round-shadow table-grid-item" src="../assets/cwl.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/cyclone.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/wc.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/survival.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/mku.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/pl.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/mkcf.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/summit.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/ldc.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/mdc.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/100pc.png">
+			<img class="img-round-shadow table-grid-item" src="../assets/paradigm.png">
+		</div>
     </div> 
 	
 	<div class="footer">
