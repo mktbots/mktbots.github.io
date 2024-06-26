@@ -173,8 +173,8 @@
         <code class="cmd">/overlap dkgs</code>
         <p class="indent">
             <span><code class="arg">dkg1</code> - <code class="arg">dkg5</code>: The name of the driver, kart, or glider.</span><br>
-            <span><code class="arg">filter</code> (optional): Different ways to filter the results.</span><br><br>
-            <span><code class="arg">show-middle-shelf-overlap</code> (optional): Show the tracks with overlapping middle shelf DKGs.</span><br><br>
+            <span><code class="arg">filter</code> (optional): Different ways to filter the results.</span><br>
+            <span><code class="arg">show-middle-shelf-overlap</code> (optional): Show the overlapping middle shelf DKG tracks.</span><br><br>
 
             Get the tracks that overlap all the DKGs specified in <code>dkg1</code> to <code>dkg5</code>.<br><br>
 
@@ -183,6 +183,8 @@
             If only <code>dkg1</code> is used, this will get their full track coverage as well as the top 3 or 4 overlapping DKGs. Otherwise, the tracks overlapping the provided <code>dkg</code> args will be shown. <br><br>
 
             Track names shown in white means all DKGs overlap them starting with level 1. If the track name is yellow, at least one DKG is locked until at least level 3, and they're shown as a mini icon.<br><br>
+
+            If <code>filter</code> is set to a specific tour and <code>show-middle-shelf-overlap</code> is set to yes, then any boosted Mii drivers for the selected tour will be shown with the text <code class="example">BOOST</code>.<br><br>
 
             Since the images are generated, please allow a few seconds for the bot to send back the results.
         </p>        
