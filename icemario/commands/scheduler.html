@@ -72,46 +72,27 @@
 
             Scheduler commands can be customized or disabled entirely by editing your server's <a href="config.html">config options</a>. <br><br>
 
-            <strong>NEW:</strong> You can now display everyone's username next to their @ping on each schedule! To enable, use the command <code class="example">im!config display-username true</code>. By default, this value is set to false.
+            <strong>NEW:</strong> You can now create recurring schedules with the <code class="example">/schedule add-recurring</code> command, as well as create multiple schedules with different titles with one command!
         </p>
 
 
 
-
-
-		<code class="cmd">!create &ltevent title&gt &ltdate and time&gt [optional restriction]</code>
+        <h2 style="color: #f7ad19;">Create Or Edit Schedules</h2>
+		<code class="cmd">/schedule create</code><br>
+        <p class="indent">
+            Required: <code class="arg">title, date</code> <br>
+            Optional: <code class="arg">restriction, use-multiple-titles, use-condensed-format, image</code><br>
+        </p>
+		<code class="cmd">!create title date [optional restriction]</code>(regular schedules)<br>
+		<code class="cmd">!createc title date [optional restriction]</code>(condensed format)<br>
+		<code class="cmd">!createm title date [optional restriction]</code>(multiple titles)<br>
+		<code class="cmd">!createmc</code> or <code class="cmd">!createcm</code> (condensed format and multiple titles)<br>
 		<p class="indent">
-            <span><code class="arg">event title</code>: The name of the event<br></span>
-            <span><code class="arg">date and time</code>: When the event takes place. Click <a href="../resources/tips.html">here</a> for an explanation on how dates are parsed. See below on how you can create multiple schedules on the same day with one command.<br></span>
+            <span><code class="arg">title</code>: The name of the event<br></span>
+            <span><code class="arg">date</code>: The date and time when the event takes place. Click <a href="../resources/tips.html">here</a> for an explanation on how dates are parsed. See below on how you can create multiple schedules on the same day with one command.<br></span>
             <span><code class="arg">optional restriction</code>: Only allow people with a certain role to react. Note: you must first add a restriction with <code class="example">!scheduleroleadd</code> (shown below) in order for it to work.</span><br><br>
 
 			Create a new schedule. <br><br>
-
-            To create multiple schedules with a single command, separate the different times with a comma. Here are
-            some examples on how to create schedules at 11am, 12pm, 1pm, and 2pm:<br>
-        </p>
-            <ul class="indent">
-                <li><code class="example">!create Scrim today at 11am, 12pm, 1pm, 2pm pdt</code></li>
-                <li><code class="example">!create Scrim today at 11:00 am, 12:00 pm, 1:00pm, 2:00pm pdt</code></li>
-                <li><code class="example">!create Scrim 4/8 11:00, 12:00, 13:00, 14:00 pdt</code></li>
-                <li><code class="example">!create Scrim 4/8 11, 12, 13, 14 pdt</code></li>
-            </ul>
-
-        <p class="indent">
-            In addition, if you regularly need to create multiple schedules at the same times for a day, you can create 
-            a <a href="custom-commands.html">custom command</a>. For example, if you create a custom command with <code class="example">!cca scrims, !create scrim today 2pm, 3pm, 4pm pdt</code>
-            then you can use the command <code class="example">!scrims</code> to have Ice Mario send the schedule create message to create the specified schedules. <br><br>
-
-            If using <code>optional restriction</code>, add the word "only" after the restriction name. 
-            For example, if you have a restriction with name <code>sapphire</code>, you'd type 
-            <code class="example">sapphire only</code> as in <br>
-            <code class="example">!create example at 12pm pdt <span class="orange">sapphire only</span></code>. You'll know it's enabled if &#128274 is shown.<br><br>
-
-			<!-- Go to https://www.w3schools.com/charsets/ref_emoji.asp for a list of emoji codes -->
-            Optionally, you can use <code class="example">!createc</code> 
-            instead to create a condensed schedule. Each member is shown on one line instead of on 
-            separate lines which makes it more compact. You can also switch between them after the schedule has been 
-            created by reacting with &#128260.<br><br>
 
             By default, Ice Mario will ping members that have reacted 1 hour before an event as well as when an 
             event starts. Also, each schedule will be disabled (indicated by the color black) 1 hour 
@@ -119,9 +100,65 @@
             instead, or you can have Ice Mario delete schedules between 1 and 60 minutes after an event takes place. 
             This can all be adjusted by setting the Clan War Scheduler <a href="config.html">config options</a>.<br><br>
 
+            You can display everyone's username next to their @ping on each schedule. To enable, use the command 
+            <code class="example">im!config display-username true</code>. By default, this value is set to false.<br><br>
+
             If you would like an image to be shown on the schedule message, attach an image when sending the 
             !create command. <br><br>
+        </p>
 
+        <h2 class="indent" style="color: #f7ad19;">Multiple Dates</h2>
+        <p class="indent">
+            You can create up to 12 schedules at a time.<br><br>
+
+            To create multiple schedules with a single command, separate the different times with a comma. Here are
+            some examples on how to create schedules at 11am, 12pm, 1pm, and 2pm:<br>
+        </p>
+            <ul class="indent">
+                <li><code class="example">!create Scrim today at 11am, 12pm, 1pm, 2pm pdt</code></li>
+                <li><code class="example">!create Scrim tommorow at 11:00 am, 12:00 pm, 1:00pm, 2:00pm pdt</code></li>
+                <li><code class="example">!create Scrim saturday 11:00, 12:00, 13:00, 14:00 pdt</code></li>
+                <li><code class="example">!create Scrim 4/8 11, 12, 13, 14 pdt</code></li>
+            </ul>
+
+        <p class="indent">
+            In addition, if you need to regularly create multiple schedules for a day, you can create 
+            recurring schedules with <code class="example">/schedule add-recurring</code>. Alternatively, you can create
+            a <a href="custom-commands.html">custom command</a>. For example, if you create a custom command with <code class="example">!cca scrims, !create scrim today 2pm, 3pm, 4pm pdt</code>
+            then you can use the command <code class="example">!scrims</code> to have Ice Mario send the schedule create message to create the specified schedules. <br><br>
+        </p>
+
+        <h2 class="indent" style="color: #f7ad19;">Multiple Titles</h2>
+        <p class="indent">
+            When creating schedules with multiple dates, you can have unique titles for each of them by using the <code class="example">!createm</code>
+            command. This allows you to use a single command to create unique schedules without having to use the create command
+            multiple times. If using the slash command, set <code class="example">use-multiple-titles</code> to <code class="example">yes</code>. <br><br>
+            
+            You will need to separate each title with a comma, and the number of titles and dates must match. For
+            example, <code class="example">!createm Scrim 1, Scrim 2 today 11am, 12pm pdt</code> will create two schedules: one
+            titled "Scrim 1" at 11am and another titled "Scrim 2" at 12pm.<br><br>
+        </p>
+
+        <h2 class="indent" style="color: #f7ad19;">Optional Restrictions</h2>
+        <p class="indent">
+            If using <code>optional restriction</code>, or the <code>restriction</code> option with the slash command, add the word "only" after the restriction name. 
+            For example, if you have a restriction with name <code>sapphire</code>, you'd type 
+            <code class="example">sapphire only</code> as in
+            <code class="example">!create example at 12pm pdt <span class="orange">sapphire only</span></code>. You'll know it's enabled if &#128274 is shown.
+            If the lock icon is not shown, no role restrictions will be enforced, and anyone can join them.<br><br>
+        </p>
+
+        <h2 class="indent" style="color: #f7ad19;">Condensed Format</h2>
+        <p class="indent">
+			<!-- Go to https://www.w3schools.com/charsets/ref_emoji.asp for a list of emoji codes -->
+            Optionally, you can use <code class="example">!createc</code>, or set <code>use-condensed-format</code> to <code class="example">yes</code>
+            when using the slash command, to create a condensed schedule. Each member is shown on one line instead of on 
+            separate lines which makes it more compact. You can also switch between them after the schedule has been 
+            created by reacting with &#128260.<br><br>
+        </p>
+
+        <h2 class="indent" style="color: #f7ad19;">Additional Info</h2>
+        <p class="indent">
             If someone signs up for two or more events happening at the same time, Ice Mario will send 
             a warning message about the schedule conflict.<br><br>
 
@@ -149,9 +186,14 @@
 
 
 
-        <code class="cmd">!scheduleedit &ltschedule message link&gt &ltnew title and date&gt</code>
+        <code class="cmd">/schedule edit</code><br>
         <p class="indent">
-            <span><code class="arg">schedule message link</code>: The Discord message link<br></span>
+            Required: <code class="arg">schedule-link, title, date</code> <br>
+            Optional: <code class="arg">restriction</code>
+        </p>
+        <code class="cmd">!scheduleedit &ltschedule link&gt &ltnew title and date&gt [optional restriction]</code>
+        <p class="indent">
+            <span><code class="arg">schedule link</code>: The Discord message link to the schedule<br></span>
             <span><code class="arg">new title and date</code>: The title and date like when a schedule was created</span><br><br>
             
             Edit an existing schedule's title, date, or the restriction.<br><br>
@@ -161,8 +203,58 @@
 
 
 
+        <h2 style="color: #f7ad19;">Create Recurring Schedules</h2>
+        <p>
+            These slash commands will allow Ice Mario to create schedules on a recurring schedule.
+        </p>
+
+        <code class="cmd">/schedule add-recurring</code><br>
+        <p class="indent">
+            <strong>Required Args</strong><br>
+            <span><code class="arg">create-date</code> When to create the next schedule(s). Ex: "tomorrow 12am pdt" or "9/15 0 cest" </span><br>
+            <span><code class="arg">title</code> The title for the schedule, or titles separated by commas if use-multiple-titles is set to yes</span><br>
+            <span><code class="arg">date</code> The next event date(s). Ex: "tomorrow 22 cest" or "9/15 11am, 12pm pdt". The dates must be after <code>create-date</code>.</span><br><br>
+            <strong>Optional Args</strong><br>
+            <span><code class="arg">repeat-days</code> How often to create schedules. Default: 1 for everyday. Use 7 for once a week </span><br>
+            <span><code class="arg">stop-date</code> Use to stop schedules after a date. Use mm/dd or mm/dd/yy like "8/15". Schedules up to 11:59pm in the specified timezone provided in the <code>date</code> option will be created.</span><br>
+            <span><code class="arg">restriction</code> Optional restriction from !scheduleroleadd. Ex: "abc only"</span><br>
+            <span><code class="arg">use-multiple-titles</code> If yes, separate titles by commas. Titles and dates count must match</span><br>
+            <span><code class="arg">use-condensed-format</code> If yes, the schedules will be condensed like !createc</span><br>
+            <span><code class="arg">image</code> Optional image to be attached to the schedule(s)</span><br><br>
+
+            Ice Mario will create the schedules in the channel the slash command was used, but if there is a channel redirect, 
+            like if <code>restriction</code> is provided or a default redirect was enabled with the <code class="example">!sra</code>
+            command, then the schedules will be sent to the respective channels. If there is currently no default redirect, but
+            one is then added after using <code class="example">/schedule add-recurring</code>, the schedules <strong>will</strong>
+            be sent to the new channel.<br><br>
+
+            These schedules will repeat forever, unless the <code>stop-date</code> option is provided.<br><br>
+
+            The recurring schedules will preserve the dates through daylight savings time. For example, if the schedules are
+            set to be created at 8pm EST, then during DST, they will continue to be created at 8pm EDT. Note that this will
+            be +/- 1 hour for people where the time change doesn't affect them, like UTC or JST. If the schedules are
+            for events that use UTC time, it would be better to specify <code>create-date</code> in UTC to preserve the event time
+            across DST.
+        </p>
+
+        <code class="cmd">/schedule remove-recurring</code><br>
+        <p class="indent">
+            <strong>Required Args</strong><br>
+            <span><code class="arg">schedule</code> The recurring schedule to remove. This will be the <code>title</code> when you used the <code class="example">/schedule add-recurring</code> command. Select one of the autocomplete option</span><br><br>
+            
+            Stop Ice Mario from creating the specified schedules.
+        </p>
+
+        <code class="cmd">/schedule list-recurring/</code><br>
+        <p class="indent">
+            List the recurring schedule(s) for the server.
+        </p>
 
 
+        <h2 style="color: #f7ad19;">Additional Schedule Commands</h2>
+        <p>
+            Slash commands for the commands below will be added in the future.
+        </p>
         <code class="cmd">!scheduleadd &ltschedule message link&gt &ltcan/sub&gt &ltmember ping&gt</code>
         <p class="indent">Add someone to an existing schedule. The second argument should be either "can" or "sub".</p>
 
