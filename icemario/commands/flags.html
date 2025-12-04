@@ -65,39 +65,41 @@
     <div id="main-content">
         <h1 class="montserrat-font blue">Custom Flags Manager</h1>
 
-        <p>Custom flags manager. Allows people to add or remove flags to be used when creating a <a href="table.html">table</a>.</p>
+        <p>
+            Custom flags manager. Allows people to add or remove flags to be used when creating a <a href="table.html">table</a>. <br><br>
 
-		<code class="cmd">!flagadd name [optional image url]</code>
-        <div class="alias-wrapper"><span class="alias">Alias: <code>!addflag</code></span></div>
-		<p class='indent'>
-            <span><code class="arg">name</code>: A one word name for the flag. This can only be at most 7 characters, and it can only include letters a-z, numbers, underscore, and a dash.<br></span>
-            <span><code class="arg">image url</code>: Either provide the url to a flag, or provide the image as an attachment.<br></span><br>
+            Message commands, like !flagadd, !flagremove, !flaglist, and !flagget will continue to work like before.
+        </p>
 
-            Add or update a flag.
-		</p>
+        <code class="cmd">/flag add-or-edit</code>
+		<p class="indent"> 
+            <span><code class="arg">name</code> (required): The flag's name. This can be at most 10 characters, and it can only include letters a-z, numbers, underscore, and a dash.</span><br>
+            <span><code class="arg">flag-attachment</code>: The flag as an attachment.</span><br>
+            <span><code class="arg">flag-url</code>: The flag as a url.</span><br><br>
 
-		<code class="cmd">!flagremove name</code>
-        <div class="alias-wrapper"><span class="alias">Alias: <code>!removeflag</code></span></div>
-		<p class="indent">
-            <span><code class="arg">name</code>: The name of the flag to remove.<br></span><br>
+            Add or edit a flag. <br><br>
 
-			Remove a custom flag.
-		</p>
+            While <code>flag-attachment</code> and <code>flag-url</code> are not listed as required on the slash command, you must provide one of them in order to update a flag.
+        </p>
 
-		<code class="cmd">!flaglist</code>
-        <div class="alias-wrapper"><span class="alias">Alias: <code>!listflag</code></span></div>
-		<p class="indent">
-			Get an image listing all the custom flags that have been added.
-		</p>
+        <code class="cmd">/flag remove</code><br>
+		<p class="indent"> 
+            <span><code class="arg">name</code>: The name of a flag.</span><br><br>
+            
+            Used to remove a flag.
+        </p>
 
-		<code class="cmd">!flagget name</code>
-        <div class="alias-wrapper"><span class="alias">Alias: <code>!getflag</code></span></div>
-		<p class="indent">
-            <span><code class="arg">name</code>: The name of the flag to get.<br></span><br>
-
+        <code class="cmd">/flag get</code><br>
+		<p class="indent"> 
+            <span><code class="arg">name</code>: The name of a flag.</span><br><br>
+            
 			Get an image of the specified flag. This can either be a custom flag or an Hlorenzi flag.
-		</p>
+        </p>
 
+		<code class="cmd">/flag list</code>
+		<p class="indent"> 
+            List all the flags that have been added to the bot. Press the buttons at the bottom to toggle between the respective pages.
+        </p>
     </div>  
 
     <div class="footer">
